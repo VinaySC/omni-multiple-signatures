@@ -1,0 +1,238 @@
+.advanced-tiptap {
+  border: 1px solid var(--slateBorderLight);
+  border-radius: 8px;
+  background: white;
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  overflow: visible; /* Prevent tooltip clipping */
+}
+
+.toolbar-container.single-line {
+  padding: 8px;
+  border-bottom: 1px solid var(--slateBorderLight);
+  background-color: white;
+  border-radius: 8px 8px 0 0;
+  overflow: visible; /* Ensure tooltips are not clipped */
+}
+
+.toolbar-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: nowrap;
+  overflow: visible; /* Crucial for tooltips to escape */
+}
+
+/* Selectors Styles */
+.toolbar-select-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.toolbar-select-wrapper select {
+  appearance: none;
+  background: white;
+  border: 1px solid var(--slateBorderLight);
+  border-radius: 4px;
+  padding: 4px 20px 4px 8px;
+  font-size: 13px;
+  color: var(--slateTextBody);
+  cursor: pointer;
+  min-width: 90px;
+  font-family: inherit;
+}
+
+.select-arrow {
+  position: absolute;
+  right: 6px;
+  pointer-events: none;
+  color: var(--slateTextSubtle);
+}
+
+.font-size-input {
+  display: flex;
+  align-items: center;
+  background: white;
+  border: 1px solid var(--slateBorderLight);
+  border-radius: 4px;
+  padding: 0 4px;
+}
+
+.font-size-input input {
+  width: 34px;
+  border: none;
+  padding: 4px 0;
+  font-size: 13px;
+  text-align: center;
+  outline: none;
+}
+
+/* Tooltip Styles */
+[data-tooltip] {
+  position: relative;
+}
+
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  padding: 6px 10px;
+  background-color: #334155;
+  color: white;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 9999; /* Maximize visibility */
+}
+
+[data-tooltip]:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Buttons Styles */
+.button-group {
+  display: flex;
+  gap: 2px;
+}
+
+.toolbar-row button {
+  background: none;
+  border: 1px solid transparent;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #475569;
+  transition: all 0.2s;
+  position: relative; /* Needed for absolute tooltips */
+}
+
+.toolbar-row button:hover {
+  background-color: #f1f5f9;
+}
+
+.toolbar-row button.active {
+  background-color: #f1f5f9;
+  color: var(--primaryTextDefault);
+}
+
+.divider-v {
+  width: 1px;
+  height: 20px;
+  background-color: #e2e8f0;
+  margin: 0 4px;
+}
+
+/* Color Picker Modal */
+.relative {
+  position: relative;
+}
+
+.color-picker-modal {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 0;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  z-index: 100;
+  width: 220px;
+  box-sizing: border-box; /* Crucial for width calculation */
+}
+
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  padding: 12px 14px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #f1f5f9; /* Divider moved here for better edge-to-edge support */
+}
+
+.color-cell {
+  width: 24px; /* Slightly larger as per image */
+  height: 24px;
+  border-radius: 6px; /* Rounded corners as per image */
+  border: 1px solid #e2e8f0 !important;
+  cursor: pointer;
+  padding: 0;
+}
+
+.color-cell:hover {
+  transform: scale(1.1);
+  z-index: 1;
+}
+
+.color-picker-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 14px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: white;
+  border-radius: 0 0 8px 8px; /* Match modal corners */
+}
+
+.text-btn {
+  background: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Hanken Grotesk', sans-serif !important; /* Force font */
+  color: #475569;
+  cursor: pointer;
+  width: auto !important;
+  height: auto !important;
+  padding: 8px 0 !important; /* Remove side padding for edge alignment */
+}
+
+.reset-btn {
+  color: #2563eb;
+}
+
+.cancel-btn {
+  color: #64748b;
+}
+
+/* Editor Content styles */
+.editor-content-wrapper {
+  padding: 16px;
+  min-height: 200px;
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.ProseMirror {
+  outline: none;
+}
+
+.ProseMirror p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--slateTextBody);
+  line-height: 1.5;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: #cbd5e1;
+  pointer-events: none;
+  height: 0;
+}

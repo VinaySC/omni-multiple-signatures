@@ -1,0 +1,19 @@
+/*
+ * Design tokens exported from Figma
+ * Exported at: 2026-03-04T00:56:18.942Z
+ * Format: Raw CSS variables grouped by kind
+ */
+:root {
+  /* Colors */
+  /* Fonts */
+  /* Measures */
+  --borderDarker: oklch(0 0 0);
+  --borderDefault: oklch(0 0 0);
+  --borderLighter: oklch(0 0 0);
+  --borderSubtle: oklch(0 0 0);
+  --surfaceDarker: oklch(0 0 0);
+  --surfaceDefault: oklch(0 0 0);
+  --surfaceLighter: oklch(0 0 0);
+  --surfaceSubtle: oklch(0 0 0);
+  --textLabel: oklch(0 0 0);
+}

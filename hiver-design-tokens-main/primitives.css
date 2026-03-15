@@ -1,0 +1,24 @@
+/**
+ * HOT Design System — Primitive Tokens
+ * Source: Figma file NH9zVKuqGYXraKuomW7niY
+ * Generated: 2026-03-04
+ *
+ * Base color palette and legacy swatches.
+ * Prefer semantic-tokens.css for component styling.
+ */
+
+:root {
+  /* ── Color scale ──────────────────────────────────── */
+  --monotones-gray-3: #6F7C90;
+  --monotones-gray-7: #0F1316;
+  --neutral-light-n10: #FAFBFC;
+  --red400: #e42525;
+  --slate950: #020617;
+
+  /* ── Legacy / miscellaneous swatches ─────────────── */
+  --hot-boder-main: #F3F4F6;
+  --other-clickable: #FFFFFF;
+  --text-label: #0c3e9d;
+  --yellow-yellow-standard: #F6C035;
+
+}

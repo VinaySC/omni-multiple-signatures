@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&display=swap');
+
+:root {
+  /* Typography Tokens */
+  --font-family: 'Hanken Grotesk', sans-serif;
+
+  --heading-h4-size: 20px;
+  --heading-h4-line-height: 24px;
+  --heading-h4-weight: 500;
+
+  --label-medium-size: 16px;
+  --label-medium-line-height: 24px;
+  --label-medium-weight: 500;
+
+  --label-small-size: 14px;
+  --label-small-line-height: 20px;
+  --label-small-weight: 500;
+
+  --label-xsmall-size: 12px;
+  --label-xsmall-line-height: 18px;
+  --label-xsmall-weight: 500;
+
+  --body-small-size: 14px;
+  --body-small-line-height: 20px;
+  --body-small-weight: 400;
+
+  /* Semantic Tokens (Slate) */
+  --slateSurfaceDark600: #475569;
+  --slateSurfaceDarkest: #334155;
+  --slateSurfaceDefault: #94a3b8;
+  --slateSurfaceDisabled: #e2e8f0;
+  --slateSurfaceSubtle: #f8fafc;
+  --slateSurfaceSubtle100-hover: #f1f5f9;
+  --slateSurfaceSubtle200: #e2e8f0;
+  --slateSurfaceWhite: #ffffff;
+  --slateBorderLight: #e2e8f0;
+  --slateBorderMild: #edf1f6;
+  --slateTextBody: #334155;
+  --slateTextCaption: #cbd5e1;
+  --slateTextDisabled: #94a3b8;
+  --slateTextSubtle: #64758b;
+  --slateTextTitle: #0f172a;
+  --slateIconsActive: #334155;
+  --slateIconsDisabled: #94a3b8;
+  --slateIconsSubtle: #64758b;
+
+  /* Primary Tokens */
+  --primarySurfaceDefault: #276cf0;
+  --primarySurfaceLighter: #7ea8f6;
+  --primarySurfaceSubtle: #e6effd;
+  --primaryBorderLighter: #a9c5f9;
+  --primaryBorderSubtle: #d4e2fc;
+  --primaryTextLabel: #0c3e9d;
+
+  /* Others */
+  --pastelRedSurfaceDefault: #d96d71;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--slateTextBody);
+  background-color: var(--slateSurfaceSubtle);
+}

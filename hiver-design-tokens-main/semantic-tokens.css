@@ -1,0 +1,96 @@
+/**
+ * HOT Design System — Semantic Tokens
+ * Source: Figma file NH9zVKuqGYXraKuomW7niY
+ * Generated: 2026-03-04
+ *
+ * All alias chains fully resolved to hex values.
+ * Use these in UI components — never use raw hex directly.
+ */
+
+:root {
+  /* ── Slate — Neutral UI chrome (surface, text, border, icons) ─ */
+  --slateSurfaceDark600: #475569;
+  --slateSurfaceDarkest: #334155;
+  --slateSurfaceDefault: #94a3b8;
+  --slateSurfaceDisabled: #e2e8f0;
+  --slateSurfaceSubtle: #f8fafc;
+  --slateSurfaceSubtle100-hover: #f1f5f9;
+  --slateSurfaceSubtle200: #e2e8f0;
+  --slateSurfaceWhite: #ffffff;
+  --slateBorderLight: #e2e8f0;
+  --slateBorderMild: #edf1f6;
+  --slateTextBody: #334155;
+  --slateTextCaption: #cbd5e1;
+  --slateTextDisabled: #94a3b8;
+  --slateTextSubtle: #64758b;
+  --slateTextTitle: #0f172a;
+  --slateIconsActive: #334155;
+  --slateIconsDisabled: #94a3b8;
+  --slateIconsSubtle: #64758b;
+
+  /* ── Primary — Brand blue, actions & highlights ───── */
+  --primarySurfaceDefault: #276cf0;
+  --primarySurfaceLighter: #7ea8f6;
+  --primarySurfaceSubtle: #e6effd;
+  --primaryBorderLighter: #a9c5f9;
+  --primaryBorderSubtle: #d4e2fc;
+  --primaryTextLabel: #0c3e9d;
+
+  /* ── Success — Positive / confirmatory states ─────── */
+  --successSurfaceDark: #4ad387;
+  --successBorderDark: #2dbb6d;
+  --successTextBody: #1b6f41;
+
+  /* ── Error — Destructive / failure states ─────────── */
+  --errorSurfaceDefault: #b81717;
+  --errorSurfaceDisabled: #eb5c5c;
+  --errorTextSubtle: #b81717;
+
+  /* ── Warning — Cautionary states ──────────────────── */
+  --warningSurfaceDark: #ec8a54;
+  --warningSurfaceSubtle: #fbe2d5;
+  --warningTextBody: #933e0f;
+
+  /* ── Pastel Red ───────────────────────────────────── */
+  --pastelRedSurfaceDefault: #d96d71;
+  --pastelRedSurfaceSubtle: #f5dbda;
+  --pastelRedBorderDefault: #d04b4f;
+  --pastelRedTextBody: #b22e33;
+  --pastelRedTextSubtle: #d04b4f;
+
+  /* ── Pastel Purple ────────────────────────────────── */
+  --pastelPurpleSurfaceDefault: #b7b8dc;
+  --pastelPurpleSurfaceSubtle: #e7e7f3;
+  --pastelPurpleBorderDefault: #8789c5;
+  --pastelPurpleTextBody: #5b5daf;
+
+  /* ── Pastel Orange ────────────────────────────────── */
+  --pastelOrangeSurfaceDefault: #e98959;
+  --pastelOrangeSurfaceSubtle: #fcefe8;
+  --pastelOrangeBorderDefault: #e3692c;
+  --pastelOrangeTextBody: #c2521b;
+
+  /* ── Pastel Green ─────────────────────────────────── */
+  --pastelGreenSurfaceDefault: #75c2b2;
+  --pastelGreenSurfaceSubtle: #ddefeb;
+  --pastelGreenBorderDefault: #52b39e;
+  --pastelGreenTextBody: #2f6e61;
+
+  /* ── Pastel Violet ────────────────────────────────── */
+  --pastelVioletSurfaceDefault: #caaed1;
+  --pastelVioletSurfaceSubtle: #ece2ee;
+  --pastelVioletBorderDefault: #ac80b7;
+  --pastelVioletTextBody: #9b66a8;
+
+  /* ── Pastel Light Blue ────────────────────────────── */
+  --pastelLightBlueSurfaceDefault: #77add9;
+  --pastelLightBlueSurfaceSubtle: #dbe9f5;
+  --pastelLightBlueBorderDefault: #5398cf;
+  --pastelLightBlueTextBody: #255c87;
+
+  /* ── Pastel Yellow ────────────────────────────────── */
+  --pastelYellowSurfaceSubtle: #faf5d6;
+  --pastelYellowBorderDefault: #e3cb2d;
+  --pastelYellowTextBody: #907f13;
+
+}

@@ -1,0 +1,76 @@
+/*
+ * Hiver Typography Tokens
+ * Font: Hanken Grotesk (Google Fonts)
+ * Scale: Minor third (×1.2), rounded to nearest 4px
+ * Source: Figma Text Styles → hiver-design-tokens/tokens/typography.css
+ * Last updated: 2026-03-04
+ */
+
+/* ============================================
+   FONT IMPORT
+============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500&display=swap');
+
+:root {
+  --font-family: 'Hanken Grotesk', sans-serif;
+
+  /* ============================================
+     HEADINGS — Medium (500)
+     Line height: font-size × ~1.2, rounded to 4px
+  ============================================ */
+  --heading-h1-size:        36px;
+  --heading-h1-line-height: 44px;
+  --heading-h1-weight:      500;
+
+  --heading-h2-size:        30px;
+  --heading-h2-line-height: 36px;
+  --heading-h2-weight:      500;
+
+  --heading-h3-size:        24px;
+  --heading-h3-line-height: 28px;
+  --heading-h3-weight:      500;
+
+  --heading-h4-size:        20px;
+  --heading-h4-line-height: 24px;
+  --heading-h4-weight:      500;
+
+  /* ============================================
+     LABELS — Medium (500)
+     Line height: font-size × ~1.5, rounded to 4px
+  ============================================ */
+  --label-large-size:        18px;
+  --label-large-line-height: 28px;
+  --label-large-weight:      500;
+
+  --label-medium-size:        16px;
+  --label-medium-line-height: 24px;
+  --label-medium-weight:      500;
+
+  --label-small-size:        14px;
+  --label-small-line-height: 20px;
+  --label-small-weight:      500;
+
+  --label-xsmall-size:        12px;
+  --label-xsmall-line-height: 18px;
+  --label-xsmall-weight:      500;
+
+  /* ============================================
+     BODY — Normal (400)
+     Line height: font-size × ~1.5, rounded to 4px
+  ============================================ */
+  --body-large-size:        18px;
+  --body-large-line-height: 28px;
+  --body-large-weight:      400;
+
+  --body-medium-size:        16px;
+  --body-medium-line-height: 24px;
+  --body-medium-weight:      400;
+
+  --body-small-size:        14px;
+  --body-small-line-height: 20px;
+  --body-small-weight:      400;
+
+  --body-xsmall-size:        12px;
+  --body-xsmall-line-height: 18px;
+  --body-xsmall-weight:      400;
+}
