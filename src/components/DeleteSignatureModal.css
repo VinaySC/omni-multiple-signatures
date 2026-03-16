@@ -1,0 +1,132 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(51, 65, 85, 0.7); /* #334155 opacity 70% */
+  display: flex;
+  align-items: center; /* Centered vertically */
+  justify-content: center;
+  z-index: 2000;
+  animation: modalFadeIn 0.2s ease-out;
+}
+
+/* Base modal container (shared with CreateModal, but specific for Delete) */
+.modal-container.delete-modal {
+  background-color: white;
+  width: 400px; /* Adjusted to design spec (~342px + padding) */
+  border-radius: 8px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: modalSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalSlideUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px) scale(0.98); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0) scale(1); 
+  }
+}
+
+.modal-header {
+  padding: 20px 20px 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.modal-title {
+  margin: 0;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #0f172a;
+  line-height: 28px;
+}
+
+.btn-close {
+  background: none;
+  border: none;
+  color: #64758b;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -4px;
+}
+
+.modal-content {
+  padding: 4px 20px 20px 20px; /* Reduced top padding to move closer to title as per design */
+}
+
+.delete-warning {
+  margin: 0;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #334155;
+  line-height: 20px;
+}
+
+.sig-name-semibold {
+  font-weight: 500; /* Medium for semibold as per design */
+}
+
+.modal-footer {
+  padding: 0 20px 20px 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.btn-secondary {
+  height: 32px;
+  padding: 4px 12px;
+  background-color: white;
+  border: none; /* Changed based on design description "Button=Seconday" typically text button */
+  border-radius: 6px;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #0f172a;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-secondary:hover {
+  background-color: #f1f5f9;
+}
+
+.btn-delete {
+  height: 32px;
+  padding: 4px 12px;
+  background-color: #b81717; /* Slate error surface default */
+  border: none;
+  border-radius: 6px;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-delete:hover {
+  background-color: #6d0d0e; /* Hover color requested: #6D0D0E */
+}

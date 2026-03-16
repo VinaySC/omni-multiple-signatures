@@ -91,7 +91,7 @@ const ColorPickerModal = ({ onSelect, onReset, onClose, title }) => {
   );
 };
 
-const SignatureEditor = ({ onChange }) => {
+const SignatureEditor = ({ onChange, initialContent }) => {
   const [fontSize, setFontSizeState] = useState('14');
   const [showTextColorPicker, setShowTextColorPicker] = useState(false);
   const [showHighlightColorPicker, setShowHighlightColorPicker] = useState(false);
@@ -107,10 +107,10 @@ const SignatureEditor = ({ onChange }) => {
       Link.configure({ openOnClick: false }),
       Image,
       TextAlign.configure({ types: ['heading', 'paragraph'] }),
-      Placeholder.configure({ placeholder: 'Sign here...' }),
+      Placeholder.configure({ placeholder: 'Enter your signature here...' }),
       FontSize,
     ],
-    content: '<p>Hello!</p>',
+    content: initialContent || '',
     onUpdate({ editor }) {
       if (onChange) {
         onChange(editor.getHTML());
@@ -323,7 +323,11 @@ const SignatureEditor = ({ onChange }) => {
         </div>
       </div>
       
-      <div className="editor-content-wrapper">
+      <div 
+        className="editor-content-wrapper" 
+        onClick={() => editor.chain().focus().run()}
+        style={{ cursor: 'text' }}
+      >
         <EditorContent editor={editor} />
       </div>
     </div>

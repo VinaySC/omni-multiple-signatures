@@ -1,0 +1,397 @@
+.signatures-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+/* Section Header Styles moved into here */
+.section-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 700px;
+  margin-bottom: 16px;
+}
+
+.section-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.section-title {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0;
+}
+
+.section-desc {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 14px;
+  color: #64758b;
+  margin: 0;
+}
+
+.btn-create-secondary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #e6effd;
+  color: #334155;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  height: 32px;
+  transition: background-color 0.2s;
+}
+
+.btn-create-secondary:hover {
+  background-color: #dbe9fe;
+}
+
+/* Empty State Section */
+.empty-state-section {
+  width: 100%;
+  max-width: 700px;
+  height: 300px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+.empty-state-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  width: 400px;
+}
+
+.empty-state-icon img {
+  width: 68px;
+  height: 68px;
+  object-fit: contain;
+}
+
+.empty-state-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.empty-state-title {
+  margin: 0;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000000;
+  line-height: 20px;
+}
+
+.empty-state-subtitle {
+  margin: 0;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #64758b;
+  line-height: 18px;
+}
+
+.btn-create-signature {
+  background-color: #0f53d2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-create-signature:hover {
+  background-color: #0d47b5;
+}
+
+/* Saved Signatures Table */
+.saved-signatures {
+  width: 100%;
+  max-width: 700px;
+}
+
+.sig-table {
+  width: 100%;
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: visible; /* Changed from hidden to allow preview tooltip to be seen */
+  border-collapse: collapse;
+}
+
+.sig-table-header {
+  display: flex;
+  background-color: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  height: 44px;
+  align-items: center;
+}
+
+.sig-table-header div {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #334155;
+  padding: 0 16px;
+}
+
+.sig-table-row {
+  display: flex;
+  height: 52px;
+  align-items: center;
+  border-bottom: 1px solid #e2e8f0;
+  transition: background-color 0.2s;
+}
+
+.sig-table-row:last-child {
+  border-bottom: none;
+}
+
+.sig-table-row:hover {
+  background-color: #f8fafc;
+}
+
+.col-name {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 14px;
+  color: #334155;
+  cursor: default;
+}
+
+.default-tag {
+  background-color: #f1f5f9;
+  color: #334155;
+  font-size: 10px;
+  font-weight: 500;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.col-inbox {
+  flex: 1;
+  padding: 0 16px;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 14px;
+  color: #334155;
+}
+
+.col-actions {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 0 16px;
+}
+
+.action-btns {
+  display: flex;
+  gap: 12px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.sig-table-row:hover .action-btns {
+  opacity: 1;
+}
+
+.btn-action {
+  background: none;
+  border: none;
+  color: #64758b;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-action:hover {
+  background-color: #e2e8f0;
+  color: #0f172a;
+}
+
+/* Default Signature Section */
+.default-signature-section {
+  width: 100%;
+  max-width: 700px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.default-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.default-title {
+  margin: 0;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #334155;
+  line-height: 20px;
+}
+
+.default-subtitle {
+  margin: 0;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #64758b;
+  line-height: 20px;
+}
+
+.default-dropdown-wrapper {
+  width: 236px;
+  height: 40px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 6px;
+  display: flex; /* Kept for disabled state */
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background-color: white;
+  transition: all 0.2s;
+  position: relative; /* For absolute icon positioning */
+}
+
+.default-dropdown-wrapper.disabled {
+  background-color: #e2e8f0;
+  border: 1px solid #e2e8f0;
+  cursor: not-allowed;
+  padding: 0 12px;
+}
+
+.dropdown-placeholder {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+.dropdown-icon {
+  color: #94a3b8;
+  position: absolute;
+  right: 12px;
+  pointer-events: none; /* Allow clicks to pass through to the select */
+}
+
+.dropdown-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center; /* Ensures placeholder text is vertically centered */
+}
+
+.sig-select {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 14px;
+  color: #334155;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  padding: 0 36px 0 12px; /* Space for the absolute icon */
+}
+
+/* Signature Preview Tooltip */
+.col-name {
+  position: relative; /* Ancestor for tooltip positioning */
+}
+
+.sig-name-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sig-name-text-wrapper {
+  position: relative; /* Exactly anchor the tooltip to the name text */
+  display: flex;
+  align-items: center;
+  cursor: default;
+}
+
+.sig-preview-tooltip {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin-left: 12px; /* Exactly 12px from the text */
+  transform: translateY(-50%);
+  z-index: 1000;
+  width: 320px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  animation: fadeInTooltip 0.2s ease-out;
+  pointer-events: none;
+}
+
+@keyframes fadeInTooltip {
+  from { 
+    opacity: 0; 
+    transform: translateY(-50%) translateX(-4px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(-50%) translateX(0); 
+  }
+}
+
+.sig-preview-body {
+  padding: 12px;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 14px;
+  color: #334155;
+  line-height: 1.5;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* Ensure images in preview don't overflow */
+.sig-preview-body img {
+  max-width: 100%;
+  height: auto;
+}

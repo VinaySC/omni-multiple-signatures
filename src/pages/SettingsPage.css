@@ -49,6 +49,7 @@
   cursor: pointer;
   color: var(--slateTextBody);
   transition: background-color 0.2s;
+  font-size: 14px; /* Set to 14px */
 }
 
 .subnav-item:hover {
@@ -58,7 +59,8 @@
 .subnav-item.active {
   background-color: var(--primaryBorderSubtle);
   color: var(--primaryTextDefault);
-  font-weight: 500;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-weight: 500; /* Hanken Grotesk Medium */
 }
 
 .subnav-item img {
@@ -82,19 +84,19 @@
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 48px;
+  gap: 32px; /* Updated from 24px to 32px */
 }
 
 .content-header {
-  border-bottom: 1px solid #E2E8F0;
-  padding-bottom: 24px;
+  border-bottom: none;
+  padding-bottom: 0px; /* Removed bottom padding */
 }
 
 .content-header h1 {
   font-size: 24px;
   font-weight: 600;
   color: var(--slateTextBody);
-  margin-bottom: 8px;
+  margin-bottom: 0px; /* Removed bottom margin */
 }
 
 .content-subtitle {
@@ -105,7 +107,13 @@
 .settings-section {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px; /* Spacing between header and content */
+}
+
+.section-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px; /* Spacing between title and desc */
 }
 
 .settings-main-content .section-title {
@@ -118,7 +126,7 @@
 .section-desc {
   font-size: 14px;
   color: var(--slateTextSubtle);
-  margin-bottom: 4px;
+  margin-bottom: 0;
 }
 
 .select-box {

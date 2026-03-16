@@ -21,7 +21,7 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  flex-wrap: nowrap;
+  flex-wrap: wrap; /* Changed from nowrap to wrap */
   overflow: visible; /* Crucial for tooltips to escape */
 }
 

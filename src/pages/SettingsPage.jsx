@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import MiniSidebar from '../components/MiniSidebar';
 import SignatureEditor from '../components/SignatureEditor';
+import SignatureLibrary from '../components/SignatureLibrary';
 import './SettingsPage.css';
 
 // Icons
@@ -14,6 +15,10 @@ const SettingsPage = () => {
 
   const handleEditorChange = () => {
     setIsDirty(true);
+  };
+
+  const handleCreateSignature = () => {
+    console.log('Open Create Signature Modal');
   };
 
   return (
@@ -48,19 +53,17 @@ const SettingsPage = () => {
           <main className="settings-main-content">
             <header className="content-header">
               <h1>Compose settings</h1>
-              <p className="content-subtitle">A Shared Inbox is a centralized workspace designed to organize and manage conversations.</p>
             </header>
 
             <section className="settings-section">
-              <h3 className="section-title">Signature</h3>
-              <p className="section-desc">Customize and manage your email signature with ease.</p>
-              
-              <SignatureEditor onChange={handleEditorChange} />
+              <SignatureLibrary />
             </section>
 
             <section className="settings-section">
-              <h3 className="section-title">Undo Send</h3>
-              <p className="section-desc">Undo email sending within your preferred timeframe after pressing Send.</p>
+              <div className="section-header">
+                <h3 className="section-title">Undo Send</h3>
+                <p className="section-desc">Undo email sending within your preferred timeframe after pressing Send.</p>
+              </div>
               
               <div className="select-box">
                 <span>Send immediately (Undo)</span>
