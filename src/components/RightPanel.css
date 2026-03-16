@@ -1,0 +1,268 @@
+.right-panel {
+  width: 316px;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.panel-tabs {
+  height: 48px;
+  border-bottom: 1px solid #edf1f6;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+.tabs-left {
+  display: flex;
+  gap: 4px;
+  height: 100%;
+}
+
+.panel-tab {
+  width: 56px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.panel-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background-color: #64758b;
+}
+
+.panel-scroll-content {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-box {
+  padding: 16px 14px 24px 14px;
+  border-bottom: 1px solid #edf1f6;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.section-title-panel {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #334155;
+  margin-bottom: 8px;
+}
+
+.property-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.property-item {
+  height: 36px;
+  display: flex;
+  align-items: center;
+}
+
+.property-label {
+  width: 116px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 14px;
+  color: #334155;
+  flex-shrink: 0;
+}
+
+.property-value {
+  flex: 1;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #334155;
+  padding-left: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.property-value.placeholder {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  color: #64758b;
+}
+
+.status-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid #e3692c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-dot-inner {
+  width: 6px;
+  height: 6px;
+  background-color: #e3692c;
+  border-radius: 50%;
+}
+
+.activity-tabs {
+  display: flex;
+  gap: 16px;
+  border-bottom: 1px solid #edf1f6;
+}
+
+.activity-tab {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #334155;
+  cursor: pointer;
+  position: relative;
+}
+
+.activity-tab.active {
+  color: #334155;
+}
+
+.activity-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background-color: #64758b;
+}
+
+.activity-tab:not(.active) {
+  color: #64758b;
+}
+
+.note-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 0 8px;
+  margin-top: 16px;
+  cursor: text;
+}
+
+.note-placeholder {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #64758b;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.timeline-date-divider {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background-color: #edf1f6;
+}
+
+.date-pill {
+  padding: 0 16px;
+  height: 20px;
+  border: 1px solid #edf1f6;
+  border-radius: 40px;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 12px;
+  color: #64758b;
+  display: flex;
+  align-items: center;
+}
+
+.activity-card {
+  background-color: #eff5fb;
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.activity-user {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #334155;
+}
+
+.activity-msg {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 14px;
+  color: #334155;
+  line-height: 20px;
+}
+
+.activity-time {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 13px;
+  color: #64758b;
+}
+
+.system-event {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.event-icon {
+  width: 14px;
+  height: 14px;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.event-text {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 14px;
+  color: #334155;
+  line-height: 20px;
+}

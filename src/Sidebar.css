@@ -255,13 +255,26 @@
   justify-content: center;
 }
 
+.nav-item.accordion-trigger .chevron-icon {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.2s ease;
+  transform: rotate(0deg); /* Point right when collapsed */
+}
+
+.nav-item.accordion-trigger.expanded .chevron-icon,
+.nav-item.accordion-trigger .chevron-icon.up {
+  transform: rotate(90deg); /* Point down when expanded */
+}
+
 .nav-group-nested {
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .nav-group-nested .nav-item {
-  padding-left: 20px; /* Aligned with x=20 in metadata */
+  padding-left: 36px;
 }
 
 .count {

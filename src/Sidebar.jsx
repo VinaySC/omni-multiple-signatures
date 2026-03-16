@@ -3,7 +3,7 @@ import './Sidebar.css';
 import MiniSidebar from './components/MiniSidebar';
 import MainSidebarPanel from './components/MainSidebarPanel';
 
-const Sidebar = () => {
+const Sidebar = ({ activeFilter, onFilterChange }) => {
   const [showProfileModal, setShowProfileModal] = useState(false);
 
   return (
@@ -12,7 +12,10 @@ const Sidebar = () => {
         showProfileModal={showProfileModal} 
         setShowProfileModal={setShowProfileModal} 
       />
-      <MainSidebarPanel />
+      <MainSidebarPanel 
+        activeFilter={activeFilter}
+        onFilterChange={onFilterChange}
+      />
     </div>
   );
 };

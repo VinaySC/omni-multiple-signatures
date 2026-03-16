@@ -12,7 +12,79 @@ import sentIcon from '../assets/icons/sent.svg';
 import tagsIcon from '../assets/icons/tags.svg';
 import unassignedIcon from '../assets/icons/unassigned.svg';
 
-const MainSidebarPanel = () => {
+import sChevronDown from '../assets/icons/Read/side-bar-chevron.svg';
+
+const MainSidebarPanel = ({ activeFilter, onFilterChange }) => {
+  const [expandedInboxes, setExpandedInboxes] = React.useState({
+    support: true,
+    finance: false,
+    shipping: false,
+    refund: false,
+    itSupport: false
+  });
+
+  const toggleInbox = (inbox) => {
+    setExpandedInboxes(prev => ({
+      ...prev,
+      [inbox]: !prev[inbox]
+    }));
+  };
+
+  const renderNestedItems = (inboxName) => {
+    const counts = {
+      'Support-Mine': 2,
+      'Support-Unassigned': 4,
+      'Finance-Mine': 5,
+      'Finance-Unassigned': 3,
+      'Shipping-Mine': 3,
+      'Shipping-Unassigned': 2,
+      'Refund-Mine': 2,
+      'Refund-Unassigned': 3,
+      'IT Support-Mine': 3,
+      'IT Support-Unassigned': 2
+    };
+
+    return (
+      <div className="nav-group-nested">
+        <div 
+          className={`nav-item ${activeFilter.inbox === inboxName && activeFilter.type === 'Mine' ? 'active' : ''}`}
+          onClick={() => onFilterChange({ inbox: inboxName, type: 'Mine' })}
+        >
+          <div className="nav-content">
+            <img src={mineIcon} alt="" width="16" height="16" className="item-icon" />
+            <span>Mine</span>
+          </div>
+          <span className="count">{counts[`${inboxName}-Mine`]}</span>
+        </div>
+        
+        <div 
+          className={`nav-item ${activeFilter.inbox === inboxName && activeFilter.type === 'Unassigned' ? 'active' : ''}`}
+          onClick={() => onFilterChange({ inbox: inboxName, type: 'Unassigned' })}
+        >
+          <div className="nav-content">
+            <img src={unassignedIcon} alt="" width="16" height="16" className="item-icon" />
+            <span>Unassigned</span>
+          </div>
+          <span className="count">{counts[`${inboxName}-Unassigned`]}</span>
+        </div>
+
+      <div className="nav-item">
+        <div className="nav-content">
+          <img src={tagsIcon} alt="" width="16" height="16" className="item-icon" />
+          <span>Tags</span>
+        </div>
+      </div>
+
+      <div className="nav-item">
+        <div className="nav-content">
+          <img src={allViewsIcon} alt="" width="16" height="16" className="item-icon" />
+          <span>All Views</span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
   return (
     <div className="side-nav-expanded">
       <div className="panel-header-top">
@@ -41,51 +113,90 @@ const MainSidebarPanel = () => {
             </div>
           </div>
 
-          <div className="nav-item">
+          <div 
+            className={`nav-item accordion-trigger ${expandedInboxes.support ? 'expanded' : ''}`}
+            onClick={() => toggleInbox('support')}
+          >
             <div className="nav-content">
               <img src={inboxIcon} alt="" width="16" height="16" className="item-icon" />
               <span>Support</span>
             </div>
+            <img 
+              src={sChevronDown} 
+              alt="" 
+              className={`chevron-icon ${expandedInboxes.support ? 'up' : ''}`} 
+            />
           </div>
 
-          <div className="nav-group-nested">
-            <div className="nav-item active">
-              <div className="nav-content">
-                <img src={mineIcon} alt="" width="16" height="16" className="item-icon" />
-                <span>Mine</span>
-              </div>
-              <span className="count">24</span>
-            </div>
-            
-            <div className="nav-item">
-              <div className="nav-content">
-                <img src={unassignedIcon} alt="" width="16" height="16" className="item-icon" />
-                <span>Unassigned</span>
-              </div>
-              <span className="count">9</span>
-            </div>
+          {expandedInboxes.support && renderNestedItems('Support')}
 
-            <div className="nav-item">
-              <div className="nav-content">
-                <img src={tagsIcon} alt="" width="16" height="16" className="item-icon" />
-                <span>Tags</span>
-              </div>
-            </div>
-
-            <div className="nav-item">
-              <div className="nav-content">
-                <img src={allViewsIcon} alt="" width="16" height="16" className="item-icon" />
-                <span>All Views</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="nav-item">
+          <div 
+            className={`nav-item accordion-trigger ${expandedInboxes.finance ? 'expanded' : ''}`}
+            onClick={() => toggleInbox('finance')}
+          >
             <div className="nav-content">
               <img src={inboxIcon} alt="" width="16" height="16" className="item-icon" />
               <span>Finance</span>
             </div>
+            <img 
+              src={sChevronDown} 
+              alt="" 
+              className={`chevron-icon ${expandedInboxes.finance ? 'up' : ''}`} 
+            />
           </div>
+
+          {expandedInboxes.finance && renderNestedItems('Finance')}
+
+          <div 
+            className={`nav-item accordion-trigger ${expandedInboxes.shipping ? 'expanded' : ''}`}
+            onClick={() => toggleInbox('shipping')}
+          >
+            <div className="nav-content">
+              <img src={inboxIcon} alt="" width="16" height="16" className="item-icon" />
+              <span>Shipping</span>
+            </div>
+            <img 
+              src={sChevronDown} 
+              alt="" 
+              className={`chevron-icon ${expandedInboxes.shipping ? 'up' : ''}`} 
+            />
+          </div>
+
+          {expandedInboxes.shipping && renderNestedItems('Shipping')}
+
+          <div 
+            className={`nav-item accordion-trigger ${expandedInboxes.refund ? 'expanded' : ''}`}
+            onClick={() => toggleInbox('refund')}
+          >
+            <div className="nav-content">
+              <img src={inboxIcon} alt="" width="16" height="16" className="item-icon" />
+              <span>Refund</span>
+            </div>
+            <img 
+              src={sChevronDown} 
+              alt="" 
+              className={`chevron-icon ${expandedInboxes.refund ? 'up' : ''}`} 
+            />
+          </div>
+
+          {expandedInboxes.refund && renderNestedItems('Refund')}
+
+          <div 
+            className={`nav-item accordion-trigger ${expandedInboxes.itSupport ? 'expanded' : ''}`}
+            onClick={() => toggleInbox('itSupport')}
+          >
+            <div className="nav-content">
+              <img src={inboxIcon} alt="" width="16" height="16" className="item-icon" />
+              <span>IT Support</span>
+            </div>
+            <img 
+              src={sChevronDown} 
+              alt="" 
+              className={`chevron-icon ${expandedInboxes.itSupport ? 'up' : ''}`} 
+            />
+          </div>
+
+          {expandedInboxes.itSupport && renderNestedItems('IT Support')}
         </div>
 
         <div className="section-title margin-top">More</div>

@@ -1,0 +1,228 @@
+.conversation-detail {
+  flex: 1;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* Allow shrinking */
+  border-right: 1px solid #edf1f6;
+}
+
+.detail-header {
+  height: 44px;
+  border-bottom: 1px solid #edf1f6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  background-color: white;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.detail-scroll-area {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 1; /* Keeping it visible as per design */
+}
+
+.page-info {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: #64758b;
+}
+
+.subject-bar-detail {
+  height: 48px;
+  border-bottom: 1px solid #edf1f6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  background-color: white;
+  flex-shrink: 0;
+}
+
+.subject-text-large {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #0f172a;
+  margin: 0;
+}
+
+.subject-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.messages-container {
+  background-color: #f8fafc;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.convo-card {
+  background-color: white;
+  border: 1px solid #edf1f6;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0px 2px 4px 0px rgba(7, 26, 46, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.convo-card-header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.header-actions-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.convo-card-collapsed {
+  background-color: white;
+  border: 1px solid #edf1f6;
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.convo-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.convo-avatar span {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: white;
+}
+
+.convo-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0; /* Ensures Fill behavior and handles overflow */
+}
+
+.convo-email {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #334155;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.convo-to {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 13px;
+  color: #64758b;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.convo-time {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 13px;
+  color: #64758b;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.convo-body {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #334155;
+}
+
+.convo-body p {
+  margin: 0;
+}
+
+.convo-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.convo-btn {
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid #e2e8f0;
+  background-color: white;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #334155;
+  cursor: pointer;
+}
+
+.convo-btn:hover {
+  background-color: #f8fafc;
+}
+
+.btn-more-content {
+  width: 24px;
+  height: 14px;
+  background-color: #f1f5f9;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  border: none;
+}
+
+.collapsed-text {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 14px;
+  color: #334155;
+}
