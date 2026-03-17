@@ -230,7 +230,10 @@ const ReplySection = ({
   useEffect(() => {
     if (editor && !hasAutoInserted.current) {
       // 1. Check for inbox-specific default
-      let sigToInsert = signatures.find(s => s.inbox === currentInbox);
+      let sigToInsert = signatures.find(s => 
+        (s.inboxes && s.inboxes.includes(currentInbox)) || 
+        (s.inbox === currentInbox)
+      );
       
       // 2. If not found, check for global default
       if (!sigToInsert && defaultSignatureId) {

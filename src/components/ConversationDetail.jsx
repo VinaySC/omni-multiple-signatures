@@ -65,7 +65,7 @@ const ConversationDetail = ({ conversation, signatures, setSignatures, defaultSi
         <div className="subject-bar-detail">
           <h1 className="subject-text-large">{conversation.subject}</h1>
           <div className="subject-actions">
-             <button className="icon-btn">
+             <button className="icon-btn" onClick={(e) => handleReplyAll(e, expandedIds[0] || (conversation.messages.length > 0 ? conversation.messages[0].id : null))}>
                <img src={replyIcon} alt="Reply" width="16" height="16" />
              </button>
              <button className="icon-btn" onClick={(e) => handleReplyAll(e, expandedIds[0])}>

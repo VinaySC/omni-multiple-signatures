@@ -28,19 +28,59 @@ const SignatureLibrary = ({
   };
 
   const handleSaveSignature = (signatureData) => {
-    if (editingSignature) {
-      setSignatures(prev => prev.map(s => s.id === editingSignature.id ? { ...s, ...signatureData } : s));
-    } else {
-      const newSignature = {
-        ...signatureData,
-        id: Date.now().toString(),
-      };
-      setSignatures(prev => [...prev, newSignature]);
-      // If it's the first signature, set it as default
-      if (signatures.length === 0) {
-        setDefaultSignatureId(newSignature.id);
+    const newInboxes = signatureData.inboxes || (signatureData.inbox ? [signatureData.inbox] : []);
+
+    setSignatures(prev => {
+      const updatedList = prev.map(sig => {
+        // If we're editing, skip the current signature for conflict check
+        if (editingSignature && sig.id === editingSignature.id) return sig;
+
+        let hasChange = false;
+        let updatedInboxes = sig.inboxes ? [...sig.inboxes] : [];
+        let updatedInbox = sig.inbox;
+
+        // 1. Check and remove conflicts from inboxes array
+        if (updatedInboxes.length > 0) {
+          const filtered = updatedInboxes.filter(inbox => !newInboxes.includes(inbox));
+          if (filtered.length !== updatedInboxes.length) {
+            updatedInboxes = filtered;
+            hasChange = true;
+          }
+        }
+
+        // 2. Check and remove conflict from legacy singular inbox
+        if (updatedInbox && newInboxes.includes(updatedInbox)) {
+          updatedInbox = null;
+          hasChange = true;
+        }
+
+        if (hasChange) {
+          return {
+            ...sig,
+            inboxes: updatedInboxes.length > 0 ? updatedInboxes : null,
+            inbox: updatedInbox
+          };
+        }
+        return sig;
+      });
+
+      if (editingSignature) {
+        return updatedList.map(s => s.id === editingSignature.id ? { ...s, ...signatureData } : s);
+      } else {
+        const newSignature = {
+          ...signatureData,
+          id: Date.now().toString(),
+        };
+        
+        // Handle the first signature being default
+        if (prev.length === 0) {
+          setTimeout(() => setDefaultSignatureId(newSignature.id), 0);
+        }
+        
+        return [...updatedList, newSignature];
       }
-    }
+    });
+
     setIsModalOpen(false);
     setEditingSignature(null);
   };
@@ -140,7 +180,7 @@ const SignatureLibrary = ({
                       </div>
                     </div>
                     <div className="col-inbox">
-                      {sig.inbox || '-'}
+                      {sig.inboxes ? sig.inboxes.join(', ') : (sig.inbox || '-')}
                     </div>
                     <div className="col-actions">
                       <div className="action-btns">

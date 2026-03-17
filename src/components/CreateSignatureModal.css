@@ -226,3 +226,149 @@
 .form-input.has-error {
   border-color: #ef4444 !important;
 }
+
+/* Multi-select Styles */
+.multi-select-container {
+  position: relative;
+  width: 100%;
+}
+
+.multi-select-trigger {
+  width: 100%;
+  height: 40px;
+  padding: 0 40px 0 12px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 6px;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 14px;
+  color: #334155;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+  overflow: hidden;
+}
+
+.multi-select-trigger:hover {
+  border-color: #cbd5e1;
+}
+
+.multi-select-trigger.active {
+  border-color: #276cf0;
+}
+
+.selected-labels {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.multi-select-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 100%; /* Matches container width */
+  background-color: white;
+  border: 1.5px solid #edf1f6; /* Matching modal border style */
+  border-radius: 8px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* More pronounced shadow for overlay feel */
+  z-index: 1001;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.dropdown-header {
+  padding: 8px 12px;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #334155;
+  line-height: 24px;
+}
+
+.dropdown-list {
+  padding: 0 4px 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.dropdown-item:hover {
+  background-color: #f1f5f9;
+}
+
+.dropdown-item.selected {
+  background-color: #f1f5f9;
+}
+
+.checkbox-custom {
+  width: 18px;
+  height: 18px;
+  border: 1px solid #94a3b8;
+  border-radius: 3px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.checkbox-custom.checked {
+  background-color: #276cf0;
+  border-color: #276cf0;
+}
+
+.inbox-name {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 14px;
+  color: #334155;
+  line-height: 20px;
+}
+
+.dropdown-footer {
+  padding: 8px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  border-top: 1px solid #edf1f6;
+}
+
+.btn-dropdown-cancel {
+  background-color: #f8fafc;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #334155;
+  cursor: pointer;
+  height: 32px;
+}
+
+.btn-dropdown-confirm {
+  background-color: #276cf0;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+  height: 32px;
+}
