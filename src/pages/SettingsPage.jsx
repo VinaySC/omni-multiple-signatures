@@ -9,16 +9,17 @@ import editIcon from '../assets/icons/new-conversation.svg';
 import inboxIcon from '../assets/icons/inbox-icon.svg';
 import bellIcon from '../assets/icons/notification.svg';
 
-const SettingsPage = () => {
+const SettingsPage = ({ 
+  signatures, 
+  setSignatures, 
+  defaultSignatureId, 
+  setDefaultSignatureId 
+}) => {
   const [showProfileModal, setShowProfileModal] = useState(false);
   const [isDirty, setIsDirty] = useState(false);
 
   const handleEditorChange = () => {
     setIsDirty(true);
-  };
-
-  const handleCreateSignature = () => {
-    console.log('Open Create Signature Modal');
   };
 
   return (
@@ -56,7 +57,12 @@ const SettingsPage = () => {
             </header>
 
             <section className="settings-section">
-              <SignatureLibrary />
+              <SignatureLibrary 
+                signatures={signatures}
+                setSignatures={setSignatures}
+                defaultSignatureId={defaultSignatureId}
+                setDefaultSignatureId={setDefaultSignatureId}
+              />
             </section>
 
             <section className="settings-section">

@@ -5,11 +5,14 @@ import { ChevronDown, Plus, Pencil, Trash2 } from 'lucide-react';
 import CreateSignatureModal from './CreateSignatureModal';
 import DeleteSignatureModal from './DeleteSignatureModal';
 
-const SignatureLibrary = () => {
-  const [signatures, setSignatures] = useState([]);
+const SignatureLibrary = ({ 
+  signatures, 
+  setSignatures, 
+  defaultSignatureId, 
+  setDefaultSignatureId 
+}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingSignature, setEditingSignature] = useState(null);
-  const [defaultSignatureId, setDefaultSignatureId] = useState(null);
   const [hoveredSigId, setHoveredSigId] = useState(null);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [signatureToDelete, setSignatureToDelete] = useState(null);
@@ -172,8 +175,9 @@ const SignatureLibrary = () => {
                 <select 
                   className="sig-select"
                   value={defaultSignatureId || ''}
-                  onChange={(e) => setDefaultSignatureId(e.target.value)}
+                  onChange={(e) => setDefaultSignatureId(e.target.value || null)}
                 >
+                  <option value="">None</option>
                   {signatures.map(s => (
                     <option key={s.id} value={s.id}>{s.name}</option>
                   ))}
@@ -191,6 +195,7 @@ const SignatureLibrary = () => {
           onClose={handleCloseModal}
           onSave={handleSaveSignature}
           initialData={editingSignature}
+          signatures={signatures}
         />
       )}
 

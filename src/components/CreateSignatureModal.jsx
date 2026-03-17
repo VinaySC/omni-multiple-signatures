@@ -3,21 +3,51 @@ import { X, ChevronDown } from 'lucide-react';
 import SignatureEditor from './SignatureEditor';
 import './CreateSignatureModal.css';
 
-const CreateSignatureModal = ({ onClose, onSave, initialData }) => {
+const CreateSignatureModal = ({ onClose, onSave, initialData, signatures = [] }) => {
   const [name, setName] = useState(initialData?.name || '');
   const [content, setContent] = useState(initialData?.content || '');
   const [selectedInbox, setSelectedInbox] = useState(initialData?.inbox || '');
   const [isValid, setIsValid] = useState(false);
+  const [nameError, setNameError] = useState('');
+  const [inboxWarning, setInboxWarning] = useState('');
 
-  // Validation logic: Enable save if name and content are not empty
+  // Validation logic: Enable save if name and content are not empty + direct error states
   useEffect(() => {
-    const isNameValid = name.trim().length > 0;
+    const isNameEmpty = name.trim().length === 0;
+    
+    // Check for duplicate name
+    const isDuplicateName = signatures.some(s => 
+      s.name.toLowerCase() === name.trim().toLowerCase() && s.id !== initialData?.id
+    );
+
+    if (isDuplicateName) {
+      setNameError('This name is already in use. Please use a different name.');
+    } else {
+      setNameError('');
+    }
+
     // Tiptap content usually has <p></p> when empty, check for actual text
     const strippedContent = content.replace(/<[^>]*>?/gm, '').trim();
     const isContentValid = strippedContent.length > 0;
     
-    setIsValid(isNameValid && isContentValid);
-  }, [name, content]);
+    setIsValid(!isNameEmpty && !isDuplicateName && isContentValid);
+  }, [name, content, signatures, initialData]);
+
+  // Inbox warning logic
+  useEffect(() => {
+    if (selectedInbox) {
+      const existingSigForInbox = signatures.find(s => 
+        s.inbox === selectedInbox && s.id !== initialData?.id
+      );
+      if (existingSigForInbox) {
+        setInboxWarning(`The "${selectedInbox}" inbox already has a signature ("${existingSigForInbox.name}"). Saving this will replace it.`);
+      } else {
+        setInboxWarning('');
+      }
+    } else {
+      setInboxWarning('');
+    }
+  }, [selectedInbox, signatures, initialData]);
 
   const handleSave = () => {
     if (isValid) {
@@ -46,12 +76,13 @@ const CreateSignatureModal = ({ onClose, onSave, initialData }) => {
             <div className="input-wrapper">
               <input 
                 type="text" 
-                className="form-input" 
+                className={`form-input ${nameError ? 'has-error' : ''}`} 
                 placeholder="Signature name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 autoFocus
               />
+              {nameError && <span className="validation-error">{nameError}</span>}
             </div>
           </div>
 
@@ -76,12 +107,15 @@ const CreateSignatureModal = ({ onClose, onSave, initialData }) => {
                 onChange={(e) => setSelectedInbox(e.target.value)}
               >
                 <option value="" disabled hidden>Select an inbox</option>
-                <option value="General">General</option>
                 <option value="Support">Support</option>
-                <option value="Sales">Sales</option>
+                <option value="Finance">Finance</option>
+                <option value="Shipping">Shipping</option>
+                <option value="Refund">Refund</option>
+                <option value="IT Support">IT Support</option>
               </select>
               <ChevronDown className="select-arrow" size={16} />
             </div>
+            {inboxWarning && <span className="validation-warning">{inboxWarning}</span>}
           </div>
         </div>
 

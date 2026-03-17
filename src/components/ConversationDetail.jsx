@@ -15,7 +15,7 @@ import smallReplyIcon from '../assets/icons/small-reply.svg';
 import smallForwardIcon from '../assets/icons/small-forward.svg';
 import chevronDownIcon from '../assets/icons/s-chevron-down.svg';
 
-const ConversationDetail = ({ conversation }) => {
+const ConversationDetail = ({ conversation, signatures, setSignatures, defaultSignatureId }) => {
   const [expandedIds, setExpandedIds] = useState([]);
   const [activeReplyId, setActiveReplyId] = useState(null);
 
@@ -82,12 +82,16 @@ const ConversationDetail = ({ conversation }) => {
           {conversation.messages.map((msg) => {
             const isExpanded = expandedIds.includes(msg.id);
             const isReplying = activeReplyId === msg.id;
-  
+   
             return (
               <React.Fragment key={msg.id}>
                 {isReplying && (
                   <ReplySection 
                     recipientEmail={msg.email} 
+                    signatures={signatures}
+                    setSignatures={setSignatures}
+                    defaultSignatureId={defaultSignatureId}
+                    currentInbox={conversation.inbox}
                     onDiscard={(e) => {
                       e.stopPropagation();
                       setActiveReplyId(null);

@@ -1001,6 +1001,9 @@ function App() {
     }
   }, [activeFilter.inbox, activeFilter.type]);
 
+  const [signatures, setSignatures] = useState([]);
+  const [defaultSignatureId, setDefaultSignatureId] = useState(null);
+
   const selectedConversation = conversationsData.find(c => c.id === selectedId);
 
   return (
@@ -1018,11 +1021,23 @@ function App() {
               onSelect={setSelectedId} 
               activeFilter={activeFilter}
             />
-            <ConversationDetail conversation={selectedConversation} />
+            <ConversationDetail 
+              conversation={selectedConversation} 
+              signatures={signatures}
+              setSignatures={setSignatures}
+              defaultSignatureId={defaultSignatureId}
+            />
             <RightPanel />
           </>
         } />
-        <Route path="/settings" element={<SettingsPage />} />
+        <Route path="/settings" element={
+          <SettingsPage 
+            signatures={signatures}
+            setSignatures={setSignatures}
+            defaultSignatureId={defaultSignatureId}
+            setDefaultSignatureId={setDefaultSignatureId}
+          />
+        } />
       </Routes>
     </div>
   );

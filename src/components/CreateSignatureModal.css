@@ -202,3 +202,27 @@
   cursor: not-allowed;
   border: 1px solid #e2e8f0;
 }
+
+.validation-error {
+  color: #ef4444;
+  font-size: 12px;
+  margin-top: 4px;
+  font-family: 'Hanken Grotesk', sans-serif;
+  display: block;
+}
+
+.validation-warning {
+  color: #b45309; /* Darker orange */
+  font-size: 12px;
+  margin-top: 4px;
+  font-family: 'Hanken Grotesk', sans-serif;
+  display: block;
+  background-color: #fffbeb;
+  padding: 8px 10px;
+  border-radius: 4px;
+  border: 1px solid #fef3c7;
+}
+
+.form-input.has-error {
+  border-color: #ef4444 !important;
+}

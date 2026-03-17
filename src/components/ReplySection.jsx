@@ -1,4 +1,5 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import { FontFamily } from '@tiptap/extension-font-family';
@@ -15,8 +16,7 @@ import {
   AlignLeft, AlignCenter, AlignRight, AlignJustify,
   Link as LinkIcon, Undo, Redo, ChevronDown, Check
 } from 'lucide-react';
-import { Extension } from '@tiptap/core';
-import { useEffect } from 'react';
+import { Extension, Node, mergeAttributes } from '@tiptap/core';
 
 import './ReplySection.css';
 
@@ -37,19 +37,38 @@ import shareIcon from '../assets/icons/Read/share.svg';
 import signatureIcon from '../assets/icons/Read/signature.svg';
 import templatesIcon from '../assets/icons/Read/templates.svg';
 import textIcon from '../assets/icons/Read/text.svg';
+import addIcon from '../assets/icons/add-icon.svg';
+
+import CreateSignatureModal from './CreateSignatureModal';
 
 // Custom Extension for Font Size (same as built earlier)
 const FontSize = Extension.create({
   name: 'fontSize',
-  addOptions() { return { types: ['textStyle'] }; },
-  addAttributes() {
+  addOptions() {
     return {
-      fontSize: {
-        default: null,
-        parseHTML: element => element.style.fontSize.replace(/['"]+/g, ''),
-        renderHTML: attributes => attributes.fontSize ? { style: `font-size: ${attributes.fontSize}` } : {},
-      },
+      types: ['textStyle'],
     };
+  },
+  addGlobalAttributes() {
+    return [
+      {
+        types: this.options.types,
+        attributes: {
+          fontSize: {
+            default: null,
+            parseHTML: element => element.style.fontSize.replace(/['"]+/g, ''),
+            renderHTML: attributes => {
+              if (!attributes.fontSize) {
+                return {};
+              }
+              return {
+                style: `font-size: ${attributes.fontSize}`,
+              };
+            },
+          },
+        },
+      },
+    ];
   },
   addCommands() {
     return {
@@ -59,64 +78,85 @@ const FontSize = Extension.create({
   },
 });
 
-const SignatureFlyout = ({ onSelect, selectedSignature }) => {
-  const signatures = ['Signature 01', 'Signature 02', 'Signature 03', 'Signature 04'];
-  
+const Signature = Node.create({
+  name: 'signature',
+  group: 'block',
+  content: 'block+',
+  parseHTML() {
+    return [{ tag: 'div[data-type="signature"]' }]
+  },
+  renderHTML({ HTMLAttributes }) {
+    return ['div', mergeAttributes(HTMLAttributes, { 'data-type': 'signature' }), 0]
+  },
+});
+
+const SignatureFlyout = ({ onSelect, selectedSignature, signatures, onCreateClick }) => {
+  const [hoveredSigId, setHoveredSigId] = useState(null);
+
   return (
     <div className="signature-flyout" onClick={(e) => e.stopPropagation()}>
-      <div 
-        className={`flyout-item ${selectedSignature === null ? 'selected' : ''}`} 
-        onClick={() => onSelect(null)}
-      >
-        <span>No signature</span>
-        {selectedSignature === null && <Check size={14} className="selection-tick" />}
+      {signatures && signatures.length > 0 && (
+        <>
+          <div 
+            className={`flyout-item ${selectedSignature === null ? 'selected' : ''}`} 
+            onClick={() => onSelect(null)}
+          >
+            <span>No signature</span>
+            {selectedSignature === null && <Check size={14} className="selection-tick" />}
+          </div>
+          <div className="flyout-divider"></div>
+          {signatures.map((sig) => (
+            <div 
+              key={sig.id} 
+              className={`flyout-item ${selectedSignature?.id === sig.id ? 'selected' : ''}`} 
+              onClick={() => onSelect(sig)}
+              onMouseEnter={() => setHoveredSigId(sig.id)}
+              onMouseLeave={() => setHoveredSigId(null)}
+              style={{ position: 'relative' }}
+            >
+              <span>{sig.name}</span>
+              {selectedSignature?.id === sig.id && <Check size={14} className="selection-tick" />}
+              
+              {hoveredSigId === sig.id && (
+                <div className="sig-preview-tooltip flyout-preview">
+                  <div 
+                    className="sig-preview-body"
+                    dangerouslySetInnerHTML={{ __html: sig.content }}
+                  />
+                </div>
+              )}
+            </div>
+          ))}
+          <div className="flyout-divider"></div>
+        </>
+      )}
+      
+      <div className="flyout-item create-sig" onClick={onCreateClick}>
+        <img src={addIcon} alt="" width="16" height="16" />
+        <span>Create new signature</span>
       </div>
-      <div className="flyout-divider"></div>
-      {signatures.map((sig, i) => (
-        <div 
-          key={i} 
-          className={`flyout-item ${selectedSignature === sig ? 'selected' : ''}`} 
-          onClick={() => onSelect(sig)}
-        >
-          <span>{sig}</span>
-          {selectedSignature === sig && <Check size={14} className="selection-tick" />}
-        </div>
-      ))}
     </div>
   );
 };
 
-const SignatureExtension = Extension.create({
-  name: 'signature',
-  addGlobalAttributes() {
-    return [
-      {
-        types: ['paragraph'],
-        attributes: {
-          'data-signature': {
-            default: null,
-            parseHTML: element => element.getAttribute('data-signature'),
-            renderHTML: attributes => {
-              if (!attributes['data-signature']) return {};
-              return { 'data-signature': attributes['data-signature'] };
-            },
-          },
-        },
-      },
-    ];
-  },
-});
-
-const ReplySection = ({ recipientEmail, onDiscard }) => {
+const ReplySection = ({ 
+  recipientEmail, 
+  onDiscard, 
+  signatures, 
+  setSignatures, 
+  defaultSignatureId, 
+  currentInbox 
+}) => {
   const [activeTab, setActiveTab] = useState('templates');
   const [showFormatting, setShowFormatting] = useState(true);
   const [showSignatureFlyout, setShowSignatureFlyout] = useState(false);
   const [selectedSignature, setSelectedSignature] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const hasAutoInserted = useRef(false);
 
   const editor = useEditor({
     extensions: [
       StarterKit,
-      SignatureExtension,
       TextStyle,
       FontFamily,
       Color,
@@ -125,8 +165,11 @@ const ReplySection = ({ recipientEmail, onDiscard }) => {
       Link.configure({ openOnClick: false }),
       Image,
       TextAlign.configure({ types: ['heading', 'paragraph'] }),
-      Placeholder.configure({ placeholder: 'Start with ‘/’ to select a email template' }),
+      Placeholder.configure({
+        placeholder: 'Start with \'/\' to select a email template',
+      }),
       FontSize,
+      Signature,
     ],
     content: '',
   });
@@ -141,61 +184,82 @@ const ReplySection = ({ recipientEmail, onDiscard }) => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [showSignatureFlyout]);
-
-  const replaceSignature = useCallback((sigName) => {
+  
+  const replaceSignature = useCallback((sig) => {
     if (!editor) return;
 
     // Search for existing signature node
     const { state } = editor;
     let signaturePos = -1;
-    let signatureNodeSize = 0;
-
     state.doc.descendants((node, pos) => {
-      // Check if it's our signature paragraph
-      if (node.type.name === 'paragraph' && node.attrs['data-signature'] === 'true') {
+      if (node.type.name === 'signature') {
         signaturePos = pos;
-        signatureNodeSize = node.nodeSize;
-        return false; // Stop searching
+        return false;
       }
-      return true;
     });
 
-    if (signaturePos !== -1) {
-      if (sigName) {
-        // REPLACE existing signature
-        editor.chain().focus()
-          .deleteRange({ from: signaturePos, to: signaturePos + signatureNodeSize })
-          .insertContent({
-            type: 'paragraph',
-            attrs: { 'data-signature': 'true' },
-            content: [
-              { type: 'text', text: `--` },
-              { type: 'hardBreak' },
-              { type: 'text', text: sigName }
-            ]
-          })
-          .run();
-      } else {
-        // REMOVE existing signature (No signature selected)
-        editor.chain().focus()
-          .deleteRange({ from: signaturePos, to: signaturePos + signatureNodeSize })
-          .run();
+    if (sig === null) {
+      if (signaturePos !== -1) {
+        editor.commands.deleteRange({ from: signaturePos, to: signaturePos + state.doc.nodeAt(signaturePos).nodeSize });
       }
-    } else if (sigName) {
-      // APPEND new signature if none exists
-      editor.chain().focus()
-        .insertContent({
-          type: 'paragraph',
-          attrs: { 'data-signature': 'true' },
-          content: [
-            { type: 'text', text: `--` },
-            { type: 'hardBreak' },
-            { type: 'text', text: sigName }
-          ]
-        })
+      return;
+    }
+
+    const sigContent = typeof sig === 'string' ? sig : sig.content;
+    const htmlToInsert = `<div data-type="signature"><p>--</p>${sigContent}</div>`;
+
+    if (signaturePos !== -1) {
+      // Replace existing
+      editor.chain()
+        .focus()
+        .insertContentAt({ 
+          from: signaturePos, 
+          to: signaturePos + state.doc.nodeAt(signaturePos).nodeSize 
+        }, htmlToInsert)
+        .run();
+    } else {
+      // Insert at the bottom
+      editor.chain()
+        .focus()
+        .insertContentAt(state.doc.content.size, htmlToInsert)
         .run();
     }
   }, [editor]);
+
+  // Auto-insert default signature on mount
+  useEffect(() => {
+    if (editor && !hasAutoInserted.current) {
+      // 1. Check for inbox-specific default
+      let sigToInsert = signatures.find(s => s.inbox === currentInbox);
+      
+      // 2. If not found, check for global default
+      if (!sigToInsert && defaultSignatureId) {
+        sigToInsert = signatures.find(s => s.id === defaultSignatureId);
+      }
+
+      if (sigToInsert) {
+        // We use a small timeout to ensure editor is fully ready to take content
+        setTimeout(() => {
+          replaceSignature(sigToInsert);
+          setSelectedSignature(sigToInsert);
+        }, 10);
+      }
+      hasAutoInserted.current = true;
+    }
+  }, [editor, signatures, currentInbox, defaultSignatureId, replaceSignature]);
+
+  const handleSaveSignature = (signatureData) => {
+    const newSignature = {
+      ...signatureData,
+      id: Date.now().toString(),
+    };
+    setSignatures(prev => [...prev, newSignature]);
+    // Automatically insert and select
+    replaceSignature(newSignature);
+    setSelectedSignature(newSignature);
+    setIsModalOpen(false);
+    setShowSignatureFlyout(false);
+  };
 
   if (!editor) return null;
 
@@ -339,13 +403,37 @@ const ReplySection = ({ recipientEmail, onDiscard }) => {
                 {showSignatureFlyout && (
                   <SignatureFlyout 
                     selectedSignature={selectedSignature}
+                    signatures={signatures}
                     onSelect={(sig) => {
+                      // If same signature is already selected, just close flyout
+                      if (sig?.id === selectedSignature?.id && sig !== null) {
+                        setShowSignatureFlyout(false);
+                        return;
+                      }
+                      // If "No signature" is clicked and we already have none, just close
+                      if (sig === null && selectedSignature === null) {
+                        setShowSignatureFlyout(false);
+                        return;
+                      }
+
                       replaceSignature(sig);
                       setSelectedSignature(sig);
                       setShowSignatureFlyout(false);
                     }}
+                    onCreateClick={() => {
+                      setIsModalOpen(true);
+                      setShowSignatureFlyout(false);
+                    }}
                     onClose={() => setShowSignatureFlyout(false)}
                   />
+                )}
+                {isModalOpen && createPortal(
+                  <CreateSignatureModal 
+                    onClose={() => setIsModalOpen(false)}
+                    onSave={handleSaveSignature}
+                    signatures={signatures}
+                  />,
+                  document.body
                 )}
               </div>
               <button className="action-item-btn">

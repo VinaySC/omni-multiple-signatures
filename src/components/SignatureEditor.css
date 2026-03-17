@@ -145,30 +145,31 @@
 .color-picker-modal {
   position: absolute;
   top: calc(100% + 8px);
-  left: 0;
+  right: 0;
   background: white;
   border: 1px solid #e2e8f0;
   border-radius: 8px;
   padding: 0;
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
   z-index: 100;
-  width: 220px;
-  box-sizing: border-box; /* Crucial for width calculation */
+  width: 216px; /* Slightly adjusted to fit 7 columns perfectly */
+  box-sizing: border-box;
 }
 
 .color-grid {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, 24px); /* Fixed size for cells */
   gap: 4px;
-  padding: 12px 14px;
+  padding: 12px;
   box-sizing: border-box;
-  border-bottom: 1px solid #f1f5f9; /* Divider moved here for better edge-to-edge support */
+  justify-content: center; /* Center the grid inside the modal */
+  border-bottom: 1px solid #f1f5f9;
 }
 
 .color-cell {
-  width: 24px; /* Slightly larger as per image */
+  width: 24px;
   height: 24px;
-  border-radius: 6px; /* Rounded corners as per image */
+  border-radius: 6px;
   border: 1px solid #e2e8f0 !important;
   cursor: pointer;
   padding: 0;

@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import { FontFamily } from '@tiptap/extension-font-family';
@@ -141,6 +141,19 @@ const SignatureEditor = ({ onChange, initialContent }) => {
       },
     },
   });
+
+  // Close color pickers when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if ((showTextColorPicker || showHighlightColorPicker) && 
+          !event.target.closest('.button-group.relative')) {
+        setShowTextColorPicker(false);
+        setShowHighlightColorPicker(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [showTextColorPicker, showHighlightColorPicker]);
 
   const toggleTextColorPicker = useCallback((e) => {
     e.stopPropagation();
