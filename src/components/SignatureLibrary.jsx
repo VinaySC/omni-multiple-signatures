@@ -175,7 +175,7 @@ const SignatureLibrary = ({
                           )}
                         </span>
                         {sig.id === defaultSignatureId && (
-                          <span className="default-tag">DEFAULT</span>
+                          <span className="default-tag">PRIMARY</span>
                         )}
                       </div>
                     </div>
@@ -198,13 +198,12 @@ const SignatureLibrary = ({
             </div>
           </div>
         )}
-
-        {/* Default Signature Section */}
+        {/* Primary Signature Section */}
         <div className="default-signature-section">
           <div className="default-info">
-            <h5 className="default-title">Default signature</h5>
+            <h5 className="default-title">Primary signature</h5>
             <p className="default-subtitle">
-              Used when no inbox-specific signature is assigned
+              Primary signature is used when no default signature is assigned for an inbox
             </p>
           </div>
           <div className={`default-dropdown-wrapper ${signatures.length === 0 ? 'disabled' : ''}`}>

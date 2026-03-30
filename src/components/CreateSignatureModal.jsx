@@ -19,9 +19,9 @@ const CreateSignatureModal = ({ onClose, onSave, initialData, signatures = [] })
   // Validation logic: Enable save if name and content are not empty + direct error states
   useEffect(() => {
     const isNameEmpty = name.trim().length === 0;
-    
+
     // Check for duplicate name
-    const isDuplicateName = signatures.some(s => 
+    const isDuplicateName = signatures.some(s =>
       s.name.toLowerCase() === name.trim().toLowerCase() && s.id !== initialData?.id
     );
 
@@ -34,7 +34,7 @@ const CreateSignatureModal = ({ onClose, onSave, initialData, signatures = [] })
     // Tiptap content usually has <p></p> when empty, check for actual text
     const strippedContent = content.replace(/<[^>]*>?/gm, '').trim();
     const isContentValid = strippedContent.length > 0;
-    
+
     setIsValid(!isNameEmpty && !isDuplicateName && isContentValid);
   }, [name, content, signatures, initialData]);
 
@@ -42,7 +42,7 @@ const CreateSignatureModal = ({ onClose, onSave, initialData, signatures = [] })
   useEffect(() => {
     if (tempInboxes.length > 0) {
       const conflicts = tempInboxes.map(inbox => {
-        const existingSig = signatures.find(s => 
+        const existingSig = signatures.find(s =>
           s.inboxes?.includes(inbox) && s.id !== initialData?.id ||
           s.inbox === inbox && s.id !== initialData?.id
         );
@@ -75,7 +75,7 @@ const CreateSignatureModal = ({ onClose, onSave, initialData, signatures = [] })
       updatePosition();
       window.addEventListener('scroll', updatePosition, true);
       window.addEventListener('resize', updatePosition);
-      
+
       return () => {
         window.removeEventListener('scroll', updatePosition, true);
         window.removeEventListener('resize', updatePosition);
@@ -84,9 +84,9 @@ const CreateSignatureModal = ({ onClose, onSave, initialData, signatures = [] })
   }, [isDropdownOpen]);
 
   const handleInboxToggle = (inbox) => {
-    setTempInboxes(prev => 
-      prev.includes(inbox) 
-        ? prev.filter(i => i !== inbox) 
+    setTempInboxes(prev =>
+      prev.includes(inbox)
+        ? prev.filter(i => i !== inbox)
         : [...prev, inbox]
     );
   };
@@ -113,7 +113,7 @@ const CreateSignatureModal = ({ onClose, onSave, initialData, signatures = [] })
     }
   };
 
-  const availableInboxes = ["Support", "Finance", "Shipping", "Refund", "IT Support"];
+  const availableInboxes = ["Personal Inbox", "Support", "Finance", "Shipping", "Refund", "IT Support"];
 
   return (
     <div className="modal-overlay" onClick={onClose}>
@@ -130,9 +130,9 @@ const CreateSignatureModal = ({ onClose, onSave, initialData, signatures = [] })
           <div className="form-group">
             <label className="form-label">Signature name</label>
             <div className="input-wrapper">
-              <input 
-                type="text" 
-                className={`form-input ${nameError ? 'has-error' : ''}`} 
+              <input
+                type="text"
+                className={`form-input ${nameError ? 'has-error' : ''}`}
                 placeholder="Signature name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -146,9 +146,9 @@ const CreateSignatureModal = ({ onClose, onSave, initialData, signatures = [] })
           <div className="form-group">
             <label className="form-label">Signature</label>
             <div className="rte-container">
-              <SignatureEditor 
+              <SignatureEditor
                 initialContent={content}
-                onChange={setContent} 
+                onChange={setContent}
               />
             </div>
           </div>
@@ -157,29 +157,29 @@ const CreateSignatureModal = ({ onClose, onSave, initialData, signatures = [] })
           <div className="form-group">
             <label className="form-label">Set this signature as a default for this inbox (optional)</label>
             <div className="multi-select-container">
-              <div 
+              <div
                 ref={triggerRef}
                 className={`multi-select-trigger ${isDropdownOpen ? 'active' : ''}`}
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
               >
                 <div className="selected-labels">
-                  {selectedInboxes.length > 0 
-                    ? selectedInboxes.join(', ') 
+                  {selectedInboxes.length > 0
+                    ? selectedInboxes.join(', ')
                     : 'Select inboxes'}
                 </div>
                 <ChevronDown className="select-arrow" size={16} />
               </div>
 
               {isDropdownOpen && createPortal(
-                <div 
-                  className="multi-select-dropdown" 
-                  style={{ 
+                <div
+                  className="multi-select-dropdown"
+                  style={{
                     position: 'fixed',
                     top: dropdownPos.top,
                     left: dropdownPos.left,
                     width: dropdownPos.width,
                     transform: 'translateY(-100%)', // Shift up by its own height
-                    zIndex: 2000 
+                    zIndex: 2000
                   }}
                   onClick={(e) => e.stopPropagation()}
                 >
@@ -188,15 +188,15 @@ const CreateSignatureModal = ({ onClose, onSave, initialData, signatures = [] })
                   </div>
                   <div className="dropdown-list">
                     {availableInboxes.map(inbox => (
-                      <div 
-                        key={inbox} 
+                      <div
+                        key={inbox}
                         className={`dropdown-item ${tempInboxes.includes(inbox) ? 'selected' : ''}`}
                         onClick={() => handleInboxToggle(inbox)}
                       >
                         <div className={`checkbox-custom ${tempInboxes.includes(inbox) ? 'checked' : ''}`}>
                           {tempInboxes.includes(inbox) && (
                             <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M1.5 4.5L3.5 6.5L8.5 1.5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                              <path d="M1.5 4.5L3.5 6.5L8.5 1.5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
                           )}
                         </div>
@@ -218,8 +218,8 @@ const CreateSignatureModal = ({ onClose, onSave, initialData, signatures = [] })
 
         <div className="modal-footer">
           <button className="btn-secondary" onClick={onClose}>Cancel</button>
-          <button 
-            className="btn-primary" 
+          <button
+            className="btn-primary"
             disabled={!isValid}
             onClick={handleSave}
           >
