@@ -139,10 +139,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  cursor: pointer;
-  background: white;
   color: var(--slateTextBody);
   font-size: 14px;
+}
+
+.settings-divider {
+  height: 1px;
+  background-color: #E2E8F0;
+  width: 100%;
 }
 
 .settings-footer {

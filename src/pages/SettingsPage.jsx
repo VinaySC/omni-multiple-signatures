@@ -65,6 +65,8 @@ const SettingsPage = ({
               />
             </section>
 
+            <div className="settings-divider"></div>
+
             <section className="settings-section">
               <div className="section-header">
                 <h3 className="section-title">Undo Send</h3>
