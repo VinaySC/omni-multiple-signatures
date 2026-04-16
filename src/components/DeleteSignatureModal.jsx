@@ -9,9 +9,7 @@ const DeleteSignatureModal = ({ isOpen, onClose, onConfirm, signatureName, isDef
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-container delete-modal" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
-          <h2 className="modal-title">
-            {isDefault ? 'Delete default signature?' : 'Delete signature?'}
-          </h2>
+          <h2 className="modal-title">Delete signature</h2>
           <button className="btn-close" onClick={onClose}>
             <X size={16} />
           </button>
@@ -37,7 +35,7 @@ const DeleteSignatureModal = ({ isOpen, onClose, onConfirm, signatureName, isDef
             className="btn-delete" 
             onClick={onConfirm}
           >
-            Delete signature
+            Delete
           </button>
         </div>
       </div>

@@ -223,7 +223,7 @@ const CreateSignatureModal = ({ onClose, onSave, initialData, signatures = [] })
             disabled={!isValid}
             onClick={handleSave}
           >
-            {initialData ? 'Save changes' : 'Save signature'}
+            Save
           </button>
         </div>
       </div>
