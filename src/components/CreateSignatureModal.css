@@ -100,6 +100,24 @@
   line-height: 20px;
 }
 
+.inbox-section-title {
+  margin: 0;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--slateTextTitle);
+  line-height: 24px;
+}
+
+.inbox-section-desc {
+  margin: 0;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--slateTextSubtle);
+  line-height: 20px;
+}
+
 .input-wrapper {
   width: 100%;
 }

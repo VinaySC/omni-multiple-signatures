@@ -154,8 +154,11 @@ const CreateSignatureModal = ({ onClose, onSave, initialData, signatures = [] })
           </div>
 
           {/* Inbox Mapping (Optional) */}
-          <div className="form-group">
-            <label className="form-label">Set this signature as a default for this inbox (optional)</label>
+          <div className="form-group" style={{ gap: '4px' }}>
+            <h3 className="inbox-section-title">Assign to Shared Inbox</h3>
+            <p className="inbox-section-desc" style={{ marginBottom: '8px' }}>
+              Automatically use this signature in selected Shared Inboxes.
+            </p>
             <div className="multi-select-container">
               <div
                 ref={triggerRef}
