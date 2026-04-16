@@ -1,7 +1,7 @@
 .advanced-tiptap {
   border: 1px solid var(--slateBorderLight);
   border-radius: 8px;
-  background: white;
+  background: var(--slateSurfaceWhite);
   width: 100%;
   max-width: 900px;
   display: flex;
@@ -12,7 +12,7 @@
 .toolbar-container.single-line {
   padding: 8px;
   border-bottom: 1px solid var(--slateBorderLight);
-  background-color: white;
+  background-color: var(--slateSurfaceWhite);
   border-radius: 8px 8px 0 0;
   overflow: visible; /* Ensure tooltips are not clipped */
 }
@@ -34,7 +34,7 @@
 
 .toolbar-select-wrapper select {
   appearance: none;
-  background: white;
+  background: var(--slateSurfaceWhite);
   border: 1px solid var(--slateBorderLight);
   border-radius: 4px;
   padding: 4px 20px 4px 8px;
@@ -55,7 +55,7 @@
 .font-size-input {
   display: flex;
   align-items: center;
-  background: white;
+  background: var(--slateSurfaceWhite);
   border: 1px solid var(--slateBorderLight);
   border-radius: 4px;
   padding: 0 4px;
@@ -82,8 +82,8 @@
   left: 50%;
   transform: translateX(-50%) translateY(10px);
   padding: 6px 10px;
-  background-color: #334155;
-  color: white;
+  background-color: var(--slateSurfaceDarkest);
+  color: var(--slateSurfaceWhite);
   font-family: 'Hanken Grotesk', sans-serif;
   font-size: 12px;
   border-radius: 6px;
@@ -116,24 +116,24 @@
   justify-content: center;
   border-radius: 6px;
   cursor: pointer;
-  color: #475569;
+  color: var(--slateSurfaceDark600);
   transition: all 0.2s;
   position: relative; /* Needed for absolute tooltips */
 }
 
 .toolbar-row button:hover {
-  background-color: #f1f5f9;
+  background-color: var(--slateSurfaceSubtle100-hover);
 }
 
 .toolbar-row button.active {
-  background-color: #f1f5f9;
+  background-color: var(--slateSurfaceSubtle100-hover);
   color: var(--primaryTextDefault);
 }
 
 .divider-v {
   width: 1px;
   height: 20px;
-  background-color: #e2e8f0;
+  background-color: var(--slateBorderLight);
   margin: 0 4px;
 }
 
@@ -146,7 +146,7 @@
   position: absolute;
   top: calc(100% + 8px);
   right: 0;
-  background: white;
+  background: var(--slateSurfaceWhite);
   border: 1px solid #e2e8f0;
   border-radius: 8px;
   padding: 0;
@@ -163,14 +163,14 @@
   padding: 12px;
   box-sizing: border-box;
   justify-content: center; /* Center the grid inside the modal */
-  border-bottom: 1px solid #f1f5f9;
+  border-bottom: 1px solid var(--slateSurfaceSubtle100-hover);
 }
 
 .color-cell {
   width: 24px;
   height: 24px;
   border-radius: 6px;
-  border: 1px solid #e2e8f0 !important;
+  border: 1px solid var(--slateBorderLight) !important;
   cursor: pointer;
   padding: 0;
 }
@@ -186,7 +186,7 @@
   padding: 8px 14px;
   width: 100%;
   box-sizing: border-box;
-  background-color: white;
+  background-color: var(--slateSurfaceWhite);
   border-radius: 0 0 8px 8px; /* Match modal corners */
 }
 
@@ -196,7 +196,7 @@
   font-size: 14px;
   font-weight: 500;
   font-family: 'Hanken Grotesk', sans-serif !important; /* Force font */
-  color: #475569;
+  color: var(--slateSurfaceDark600);
   cursor: pointer;
   width: auto !important;
   height: auto !important;
@@ -204,11 +204,11 @@
 }
 
 .reset-btn {
-  color: #2563eb;
+  color: var(--primarySurfaceDefault);
 }
 
 .cancel-btn {
-  color: #64748b;
+  color: var(--slateTextSubtle);
 }
 
 /* Editor Content styles */
@@ -233,7 +233,7 @@
 .ProseMirror p.is-editor-empty:first-child::before {
   content: attr(data-placeholder);
   float: left;
-  color: #cbd5e1;
+  color: var(--slateTextCaption);
   pointer-events: none;
   height: 0;
 }

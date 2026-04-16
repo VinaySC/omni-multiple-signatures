@@ -16,7 +16,7 @@ const conversationsData = [
     type: 'Mine',
     sender: 'John Smith',
     initial: 'J',
-    avatarColor: '#d04b4f',
+    avatarColor: 'var(--pastelRedBorderDefault)',
     time: 'Feb 4, 02:45 PM',
     subject: 'Issue with the app',
     preview: 'I am seeing a blank screen after login.',
@@ -28,7 +28,7 @@ const conversationsData = [
         email: 'john.smith@gmail.com',
         time: 'Feb 4, 01:20 PM',
         initial: 'J',
-        avatarColor: '#d04b4f',
+        avatarColor: 'var(--pastelRedBorderDefault)',
         body: 'Hi Support,\n\nI am experiencing a blank screen after logging in to the mobile app. Can you please help?'
       },
       {
@@ -37,7 +37,7 @@ const conversationsData = [
         email: 'ruben@acme.com',
         time: 'Feb 4, 02:00 PM',
         initial: 'R',
-        avatarColor: '#5398cf',
+        avatarColor: 'var(--pastelLightBlueBorderDefault)',
         body: 'Hello John,\n\nI am looking into this. Could you let me know which device you are using?'
       },
       {
@@ -46,7 +46,7 @@ const conversationsData = [
         email: 'john.smith@gmail.com',
         time: 'Feb 4, 02:45 PM',
         initial: 'J',
-        avatarColor: '#d04b4f',
+        avatarColor: 'var(--pastelRedBorderDefault)',
         body: 'I am using an iPhone 15 Pro with the latest iOS update.'
       }
     ]
@@ -57,7 +57,7 @@ const conversationsData = [
     type: 'Mine',
     sender: 'Alice Johnson',
     initial: 'A',
-    avatarColor: '#ac80b7',
+    avatarColor: 'var(--pastelVioletBorderDefault)',
     time: 'Feb 4, 11:30 AM',
     subject: 'Refund status',
     preview: 'Has the refund been processed yet?',
@@ -69,7 +69,7 @@ const conversationsData = [
         email: 'alice.j@outlook.com',
         time: 'Feb 4, 10:00 AM',
         initial: 'A',
-        avatarColor: '#ac80b7',
+        avatarColor: 'var(--pastelVioletBorderDefault)',
         body: 'Hello,\n\nI requested a refund last week but haven\'t seen it in my account yet. Any updates?'
       },
       {
@@ -78,7 +78,7 @@ const conversationsData = [
         email: 'ruben@acme.com',
         time: 'Feb 4, 11:30 AM',
         initial: 'R',
-        avatarColor: '#5398cf',
+        avatarColor: 'var(--pastelLightBlueBorderDefault)',
         body: 'Hi Alice,\n\nI\'ve checked the status and the refund was approved yesterday. It should appear in your account within 3-5 business days.'
       }
     ]
@@ -91,7 +91,7 @@ const conversationsData = [
     type: 'Unassigned',
     sender: 'Emily Watson',
     initial: 'E',
-    avatarColor: '#f59e0b',
+    avatarColor: 'var(--pastelOrangeSurfaceDefault)',
     time: 'Feb 4, 05:10 PM',
     subject: 'Billing inquiry',
     preview: 'Why was I charged twice this month?',
@@ -103,7 +103,7 @@ const conversationsData = [
         email: 'emily.w@designcorp.com',
         time: 'Feb 4, 04:00 PM',
         initial: 'E',
-        avatarColor: '#f59e0b',
+        avatarColor: 'var(--pastelOrangeSurfaceDefault)',
         body: 'Hi,\n\nI noticed two separate charges from your service on my bank statement this morning. Can you please explain why?'
       },
       {
@@ -123,7 +123,7 @@ const conversationsData = [
     type: 'Unassigned',
     sender: 'David Chen',
     initial: 'D',
-    avatarColor: '#6366f1',
+    avatarColor: 'var(--pastelPurpleTextBody)',
     time: 'Feb 4, 01:20 PM',
     subject: 'API documentation question',
     preview: 'How do I authenticate with the latest version?',
@@ -135,7 +135,7 @@ const conversationsData = [
         email: 'david.chen@tech.io',
         time: 'Feb 4, 10:00 AM',
         initial: 'D',
-        avatarColor: '#6366f1',
+        avatarColor: 'var(--pastelPurpleTextBody)',
         body: 'Hello,\n\nI\'m migrating to version 2 of your API but I\'m getting an auth error. The docs seem to only cover version 1.'
       },
       {
@@ -153,7 +153,7 @@ const conversationsData = [
         email: 'david.chen@tech.io',
         time: 'Feb 4, 01:20 PM',
         initial: 'D',
-        avatarColor: '#6366f1',
+        avatarColor: 'var(--pastelPurpleTextBody)',
         body: 'Any update on this? I\'m currently blocked on my development task.'
       }
     ]
@@ -164,7 +164,7 @@ const conversationsData = [
     type: 'Unassigned',
     sender: 'Sophia Lee',
     initial: 'S',
-    avatarColor: '#ec4899',
+    avatarColor: 'var(--pastelVioletTextBody)',
     time: 'Feb 3, 11:45 AM',
     subject: 'Integration with Slack',
     preview: 'Is it possible to receive notifications in Slack?',
@@ -176,7 +176,7 @@ const conversationsData = [
         email: 'sophia.lee@startup.com',
         time: 'Feb 3, 09:30 AM',
         initial: 'S',
-        avatarColor: '#ec4899',
+        avatarColor: 'var(--pastelVioletTextBody)',
         body: 'Hi Team,\n\nWe love your tool! We were wondering if there\'s an easy way to get real-time alerts in our Slack channels when something happens?'
       },
       {
@@ -196,7 +196,7 @@ const conversationsData = [
     type: 'Unassigned',
     sender: 'Mark Wilson',
     initial: 'M',
-    avatarColor: '#8b5cf6',
+    avatarColor: 'var(--pastelPurpleTextBody)',
     time: 'Feb 2, 02:10 PM',
     subject: 'Login timeout issue',
     preview: 'I am getting logged out every 5 minutes.',
@@ -208,7 +208,7 @@ const conversationsData = [
         email: 'mark@wilson.com',
         time: 'Feb 2, 12:00 PM',
         initial: 'M',
-        avatarColor: '#8b5cf6',
+        avatarColor: 'var(--pastelPurpleTextBody)',
         body: 'Hi,\n\nYour app keeps logging me out every few minutes today. Is there an issue with the session settings?'
       },
       {
@@ -230,7 +230,7 @@ const conversationsData = [
     type: 'Mine',
     sender: 'Robert Brown',
     initial: 'R',
-    avatarColor: '#5398cf',
+    avatarColor: 'var(--pastelLightBlueBorderDefault)',
     time: 'Feb 4, 09:00 AM',
     subject: 'Quarterly Audit Report',
     preview: 'Please find the draft audit report for Q4.',
@@ -242,7 +242,7 @@ const conversationsData = [
         email: 'robert.b@finance-audit.com',
         time: 'Feb 3, 05:00 PM',
         initial: 'R',
-        avatarColor: '#5398cf',
+        avatarColor: 'var(--pastelLightBlueBorderDefault)',
         body: 'Hi Ruben,\n\nI have completed the initial draft of the Q4 audit. Please review the attached findings.'
       },
       {
@@ -251,7 +251,7 @@ const conversationsData = [
         email: 'ruben@acme.com',
         time: 'Feb 4, 08:30 AM',
         initial: 'R',
-        avatarColor: '#5398cf',
+        avatarColor: 'var(--pastelLightBlueBorderDefault)',
         body: 'Thanks Robert. I noticed a small discrepancy in the tax section on page 4. Could you double check that?'
       },
       {
@@ -260,7 +260,7 @@ const conversationsData = [
         email: 'robert.b@finance-audit.com',
         time: 'Feb 4, 09:00 AM',
         initial: 'R',
-        avatarColor: '#5398cf',
+        avatarColor: 'var(--pastelLightBlueBorderDefault)',
         body: 'Good catch! You\'re right. I\'ve updated the figures and re-uploaded the report.'
       }
     ]
@@ -271,7 +271,7 @@ const conversationsData = [
     type: 'Mine',
     sender: 'Sarah Miller',
     initial: 'S',
-    avatarColor: '#10b981',
+    avatarColor: 'var(--pastelGreenBorderDefault)',
     time: 'Feb 4, 12:45 PM',
     subject: 'Travel Reimbursement',
     preview: 'Receipts for the business trip to London.',
@@ -283,7 +283,7 @@ const conversationsData = [
         email: 'sarah.m@acme.com',
         time: 'Feb 4, 11:00 AM',
         initial: 'S',
-        avatarColor: '#10b981',
+        avatarColor: 'var(--pastelGreenBorderDefault)',
         body: 'Hi Ruben,\n\nAttaching all receipts for my trip to London last week for the conference. Total comes to $1,450.'
       },
       {
@@ -292,7 +292,7 @@ const conversationsData = [
         email: 'ruben@acme.com',
         time: 'Feb 4, 12:45 PM',
         initial: 'R',
-        avatarColor: '#5398cf',
+        avatarColor: 'var(--pastelLightBlueBorderDefault)',
         body: 'Approved! This will be included in your next paycheck. Hope the conference was productive!'
       }
     ]
@@ -303,7 +303,7 @@ const conversationsData = [
     type: 'Mine',
     sender: 'Finance Team',
     initial: 'F',
-    avatarColor: '#3b82f6',
+    avatarColor: 'var(--pastelLightBlueTextBody)',
     time: 'Feb 3, 02:30 PM',
     subject: 'New Payroll System',
     preview: 'Onboarding to the new platform starts Monday.',
@@ -315,7 +315,7 @@ const conversationsData = [
         email: 'payroll@acme.com',
         time: 'Feb 3, 10:00 AM',
         initial: 'F',
-        avatarColor: '#3b82f6',
+        avatarColor: 'var(--pastelLightBlueTextBody)',
         body: 'Team,\n\nWe are moving to ZenPayroll starting next month. Please ensure all your bank details are updated by Friday.'
       },
       {
@@ -324,7 +324,7 @@ const conversationsData = [
         email: 'ruben@acme.com',
         time: 'Feb 3, 02:30 PM',
         initial: 'R',
-        avatarColor: '#5398cf',
+        avatarColor: 'var(--pastelLightBlueBorderDefault)',
         body: 'Will do. Thanks for the heads up!'
       }
     ]
@@ -335,7 +335,7 @@ const conversationsData = [
     type: 'Mine',
     sender: 'Kevin Heart',
     initial: 'K',
-    avatarColor: '#f43f5e',
+    avatarColor: 'var(--pastelRedTextBody)',
     time: 'Feb 2, 09:45 AM',
     subject: 'Annual bonus question',
     preview: 'When will the bonuses be paid out?',
@@ -347,7 +347,7 @@ const conversationsData = [
         email: 'kevin.h@acme.com',
         time: 'Feb 2, 08:30 AM',
         initial: 'K',
-        avatarColor: '#f43f5e',
+        avatarColor: 'var(--pastelRedTextBody)',
         body: 'Hi Finance,\n\nI was wondering if we have a date for the annual performance bonuses yet?'
       },
       {
@@ -356,7 +356,7 @@ const conversationsData = [
         email: 'ruben@acme.com',
         time: 'Feb 2, 09:45 AM',
         initial: 'R',
-        avatarColor: '#5398cf',
+        avatarColor: 'var(--pastelLightBlueBorderDefault)',
         body: 'Hi Kevin,\n\nTarget date is the Feb 28th payroll cycle.'
       }
     ]
@@ -367,7 +367,7 @@ const conversationsData = [
     type: 'Mine',
     sender: 'Julia Roberts',
     initial: 'J',
-    avatarColor: '#84cc16',
+    avatarColor: 'var(--pastelGreenTextBody)',
     time: 'Feb 1, 04:20 PM',
     subject: 'New credit card request',
     preview: 'I need a corporate card for travel.',
@@ -379,7 +379,7 @@ const conversationsData = [
         email: 'julia.r@acme.com',
         time: 'Feb 1, 02:00 PM',
         initial: 'J',
-        avatarColor: '#84cc16',
+        avatarColor: 'var(--pastelGreenTextBody)',
         body: 'Hello Finance,\n\nI have several trips coming up in Q1 and would like to request a corporate credit card.'
       },
       {
@@ -388,7 +388,7 @@ const conversationsData = [
         email: 'ruben@acme.com',
         time: 'Feb 1, 04:20 PM',
         initial: 'R',
-        avatarColor: '#5398cf',
+        avatarColor: 'var(--pastelLightBlueBorderDefault)',
         body: 'Please fill out the request form on the wiki and I will approve it once the department head signs off.'
       }
     ]
@@ -401,7 +401,7 @@ const conversationsData = [
     type: 'Unassigned',
     sender: 'Vendor Support',
     initial: 'V',
-    avatarColor: '#64748b',
+    avatarColor: 'var(--slateTextSubtle)',
     time: 'Feb 4, 11:20 AM',
     subject: 'Unpaid Invoice #8849',
     preview: 'Our records show that invoice #8849 is still outstanding.',
@@ -413,7 +413,7 @@ const conversationsData = [
         email: 'support@cloud-services.com',
         time: 'Feb 4, 09:00 AM',
         initial: 'V',
-        avatarColor: '#64748b',
+        avatarColor: 'var(--slateTextSubtle)',
         body: 'Dear Finance Team,\n\nWe would like to remind you that invoice #8849 (dated Jan 15) for $2,400 has not been paid yet. Please process this at your earliest convenience.'
       },
       {
@@ -433,7 +433,7 @@ const conversationsData = [
     type: 'Unassigned',
     sender: 'Legal Dept',
     initial: 'L',
-    avatarColor: '#7c3aed',
+    avatarColor: 'var(--pastelPurpleTextBody)',
     time: 'Feb 4, 03:50 PM',
     subject: 'New contract validation',
     preview: 'Please verify the budget allocation for the new vendor.',
@@ -445,7 +445,7 @@ const conversationsData = [
         email: 'contracts@acme.com',
         time: 'Feb 4, 02:00 PM',
         initial: 'L',
-        avatarColor: '#7c3aed',
+        avatarColor: 'var(--pastelPurpleTextBody)',
         body: 'Hi Finance,\n\nWe have a new contract for "Elite Marketing" ready for signature. Before we sign, can someone confirm that the $50k yearly budget is allocated for this?'
       },
       {
@@ -465,7 +465,7 @@ const conversationsData = [
     type: 'Unassigned',
     sender: 'AWS Billing',
     initial: 'A',
-    avatarColor: '#f97316',
+    avatarColor: 'var(--pastelOrangeBorderDefault)',
     time: 'Feb 3, 10:00 AM',
     subject: 'Monthly usage report',
     preview: 'Your AWS bill for January is now available.',
@@ -477,7 +477,7 @@ const conversationsData = [
         email: 'billing@amazon.com',
         time: 'Feb 3, 08:00 AM',
         initial: 'A',
-        avatarColor: '#f97316',
+        avatarColor: 'var(--pastelOrangeBorderDefault)',
         body: 'Greetings from Amazon Web Services,\n\nYour monthly billing statement for the period Jan 1 - Jan 31 is now ready for viewing.'
       },
       {
@@ -499,7 +499,7 @@ const conversationsData = [
     type: 'Mine',
     sender: 'FedEx Support',
     initial: 'F',
-    avatarColor: '#4f46e5',
+    avatarColor: 'var(--pastelPurpleBorderDefault)',
     time: 'Feb 4, 10:00 AM',
     subject: 'Package Delay Alert',
     preview: 'Your shipment #99283 is delayed due to weather.',
@@ -511,7 +511,7 @@ const conversationsData = [
         email: 'support@fedex.com',
         time: 'Feb 4, 08:00 AM',
         initial: 'F',
-        avatarColor: '#4f46e5',
+        avatarColor: 'var(--pastelPurpleBorderDefault)',
         body: 'Hi,\n\nWe are sorry to inform you that your package #99283 is delayed due to severe weather in Memphis. Estimated delivery is now Feb 6.'
       },
       {
@@ -520,7 +520,7 @@ const conversationsData = [
         email: 'ruben@acme.com',
         time: 'Feb 4, 10:00 AM',
         initial: 'R',
-        avatarColor: '#5398cf',
+        avatarColor: 'var(--pastelLightBlueBorderDefault)',
         body: 'Thanks for the update. We will inform the client.'
       }
     ]
@@ -531,7 +531,7 @@ const conversationsData = [
     type: 'Mine',
     sender: 'Warehouse Team',
     initial: 'W',
-    avatarColor: '#ea580c',
+    avatarColor: 'var(--pastelOrangeTextBody)',
     time: 'Feb 4, 01:15 PM',
     subject: 'Inventory replenishment',
     preview: 'New stock for Item X has arrived.',
@@ -543,7 +543,7 @@ const conversationsData = [
         email: 'wh@acme.com',
         time: 'Feb 4, 11:30 AM',
         initial: 'W',
-        avatarColor: '#ea580c',
+        avatarColor: 'var(--pastelOrangeTextBody)',
         body: 'Hi Ruben,\n\nJust wanted to let you know that 500 units of Item X are now back in stock and ready for shipping.'
       },
       {
@@ -552,7 +552,7 @@ const conversationsData = [
         email: 'ruben@acme.com',
         time: 'Feb 4, 01:15 PM',
         initial: 'R',
-        avatarColor: '#5398cf',
+        avatarColor: 'var(--pastelLightBlueBorderDefault)',
         body: 'Great news. We can start processing the backorders.'
       }
     ]
@@ -563,7 +563,7 @@ const conversationsData = [
     type: 'Mine',
     sender: 'UPS Billing',
     initial: 'U',
-    avatarColor: '#b45309',
+    avatarColor: 'var(--warningTextBody)',
     time: 'Feb 3, 03:40 PM',
     subject: 'Weekly shipping invoice',
     preview: 'Invoice for week of Jan 27 is attached.',
@@ -575,7 +575,7 @@ const conversationsData = [
         email: 'billing@ups.com',
         time: 'Feb 3, 09:00 AM',
         initial: 'U',
-        avatarColor: '#b45309',
+        avatarColor: 'var(--warningTextBody)',
         body: 'Hello,\n\nPlease find the attached invoice for all shipments processed last week. Total due: $3,210.'
       },
       {
@@ -584,7 +584,7 @@ const conversationsData = [
         email: 'ruben@acme.com',
         time: 'Feb 3, 03:40 PM',
         initial: 'R',
-        avatarColor: '#5398cf',
+        avatarColor: 'var(--pastelLightBlueBorderDefault)',
         body: 'Forwarded to Finance for payment.'
       }
     ]
@@ -597,7 +597,7 @@ const conversationsData = [
     type: 'Unassigned',
     sender: 'Logistics Partner',
     initial: 'L',
-    avatarColor: '#1e293b',
+    avatarColor: 'var(--slateTextTitle)',
     time: 'Feb 4, 04:30 PM',
     subject: 'New route optimization',
     preview: 'Proposal for reducing shipping costs to Europe.',
@@ -609,7 +609,7 @@ const conversationsData = [
         email: 'partners@logistics.com',
         time: 'Feb 4, 02:00 PM',
         initial: 'L',
-        avatarColor: '#1e293b',
+        avatarColor: 'var(--slateTextTitle)',
         body: 'Hi Shipping Team,\n\nWe have developed a new route for your European shipments that could save you 15% on freight costs. Would you like to see the proposal?'
       },
       {
@@ -629,7 +629,7 @@ const conversationsData = [
     type: 'Unassigned',
     sender: 'Customs Office',
     initial: 'C',
-    avatarColor: '#ef4444',
+    avatarColor: 'var(--errorTextSubtle)',
     time: 'Feb 3, 11:10 AM',
     subject: 'Cleared for export',
     preview: 'Shipment #44102 has passed inspection.',
@@ -641,7 +641,7 @@ const conversationsData = [
         email: 'exports@customs.gov',
         time: 'Feb 3, 09:00 AM',
         initial: 'C',
-        avatarColor: '#ef4444',
+        avatarColor: 'var(--errorTextSubtle)',
         body: 'Notice: Shipment #44102 destined for Canada has cleared all export requirements and is released for transport.'
       },
       {
@@ -663,7 +663,7 @@ const conversationsData = [
     type: 'Mine',
     sender: 'George Baker',
     initial: 'G',
-    avatarColor: '#ec4899',
+    avatarColor: 'var(--pastelVioletTextBody)',
     time: 'Feb 4, 10:20 AM',
     subject: 'Double charge refund',
     preview: 'I see a duplicate charge on my statement.',
@@ -675,7 +675,7 @@ const conversationsData = [
         email: 'george@baker.com',
         time: 'Feb 4, 09:00 AM',
         initial: 'G',
-        avatarColor: '#ec4899',
+        avatarColor: 'var(--pastelVioletTextBody)',
         body: 'Hello,\n\nI was charged twice for my subscription this month. Can you please refund the second one?'
       },
       {
@@ -684,7 +684,7 @@ const conversationsData = [
         email: 'ruben@acme.com',
         time: 'Feb 4, 10:20 AM',
         initial: 'R',
-        avatarColor: '#5398cf',
+        avatarColor: 'var(--pastelLightBlueBorderDefault)',
         body: 'Hi George,\n\nI\'ve processed the refund for the duplicate charge. It should reach your account in 3-5 days.'
       }
     ]
@@ -695,7 +695,7 @@ const conversationsData = [
     type: 'Mine',
     sender: 'Emma Stone',
     initial: 'E',
-    avatarColor: '#8b5cf6',
+    avatarColor: 'var(--pastelPurpleTextBody)',
     time: 'Feb 3, 04:15 PM',
     subject: 'Return shipping refund',
     preview: 'Can I get a refund for the return labels?',
@@ -707,7 +707,7 @@ const conversationsData = [
         email: 'emma@stone.com',
         time: 'Feb 3, 02:00 PM',
         initial: 'E',
-        avatarColor: '#8b5cf6',
+        avatarColor: 'var(--pastelPurpleTextBody)',
         body: 'Hi,\n\nI had to pay for return shipping because the item was faulty. Can this be reimbursed?'
       },
       {
@@ -716,7 +716,7 @@ const conversationsData = [
         email: 'ruben@acme.com',
         time: 'Feb 3, 04:15 PM',
         initial: 'R',
-        avatarColor: '#5398cf',
+        avatarColor: 'var(--pastelLightBlueBorderDefault)',
         body: 'Yes Emma. Please upload the receipt and I will issue a credit to your account.'
       }
     ]
@@ -729,7 +729,7 @@ const conversationsData = [
     type: 'Unassigned',
     sender: 'Customer Care',
     initial: 'C',
-    avatarColor: '#10b981',
+    avatarColor: 'var(--pastelGreenBorderDefault)',
     time: 'Feb 4, 11:00 AM',
     subject: 'Escalated refund request',
     preview: 'Customer is unhappy with the product.',
@@ -741,7 +741,7 @@ const conversationsData = [
         email: 'care@acme.com',
         time: 'Feb 4, 08:30 AM',
         initial: 'C',
-        avatarColor: '#10b981',
+        avatarColor: 'var(--pastelGreenBorderDefault)',
         body: 'Team,\n\nCustomer #9928 wants a full refund. They say the item doesn\'t match the description. Please review.'
       },
       {
@@ -761,7 +761,7 @@ const conversationsData = [
     type: 'Unassigned',
     sender: 'Liam Neeson',
     initial: 'L',
-    avatarColor: '#3b82f6',
+    avatarColor: 'var(--pastelLightBlueTextBody)',
     time: 'Feb 4, 03:20 PM',
     subject: 'Membership cancellation refund',
     preview: 'I want a pro-rated refund for my annual plan.',
@@ -773,7 +773,7 @@ const conversationsData = [
         email: 'liam@neeson.com',
         time: 'Feb 4, 01:00 PM',
         initial: 'L',
-        avatarColor: '#3b82f6',
+        avatarColor: 'var(--pastelLightBlueTextBody)',
         body: 'Hi,\n\nI am cancelling my service halfway through the year. I\'d like a refund for the remaining 6 months.'
       },
       {
@@ -793,7 +793,7 @@ const conversationsData = [
     type: 'Unassigned',
     sender: 'Bank Notification',
     initial: 'B',
-    avatarColor: '#64748b',
+    avatarColor: 'var(--slateTextSubtle)',
     time: 'Feb 3, 09:45 AM',
     subject: 'Chargeback alert',
     preview: 'A dispute has been opened for transaction #7721.',
@@ -805,7 +805,7 @@ const conversationsData = [
         email: 'alerts@chase.com',
         time: 'Feb 3, 08:00 AM',
         initial: 'B',
-        avatarColor: '#64748b',
+        avatarColor: 'var(--slateTextSubtle)',
         body: 'Notice: A chargeback has been initiated for the amount of $120. Reason: Product not received.'
       },
       {
@@ -827,7 +827,7 @@ const conversationsData = [
     type: 'Mine',
     sender: 'Tech Team',
     initial: 'T',
-    avatarColor: '#4f46e5',
+    avatarColor: 'var(--pastelPurpleBorderDefault)',
     time: 'Feb 4, 02:00 PM',
     subject: 'Workstation update',
     preview: 'Your laptop is scheduled for an OS upgrade.',
@@ -839,7 +839,7 @@ const conversationsData = [
         email: 'it@acme.com',
         time: 'Feb 4, 11:00 AM',
         initial: 'T',
-        avatarColor: '#4f46e5',
+        avatarColor: 'var(--pastelPurpleBorderDefault)',
         body: 'Hi Ruben,\n\nWe need to perform a security patch on your MacBook. Are you free at 3 PM?'
       },
       {
@@ -848,7 +848,7 @@ const conversationsData = [
         email: 'ruben@acme.com',
         time: 'Feb 4, 02:00 PM',
         initial: 'R',
-        avatarColor: '#5398cf',
+        avatarColor: 'var(--pastelLightBlueBorderDefault)',
         body: 'Yes, 3 PM works. I\'ll bring it to the IT desk.'
       }
     ]
@@ -859,7 +859,7 @@ const conversationsData = [
     type: 'Mine',
     sender: 'Slack Admin',
     initial: 'S',
-    avatarColor: '#ea580c',
+    avatarColor: 'var(--pastelOrangeTextBody)',
     time: 'Feb 4, 05:30 PM',
     subject: 'Channel guest access',
     preview: 'Access approved for the external partner.',
@@ -871,7 +871,7 @@ const conversationsData = [
         email: 'it-slack@acme.com',
         time: 'Feb 4, 04:00 PM',
         initial: 'S',
-        avatarColor: '#ea580c',
+        avatarColor: 'var(--pastelOrangeTextBody)',
         body: 'Ruben, the guest user you requested for the #projects channel has been added.'
       },
       {
@@ -880,7 +880,7 @@ const conversationsData = [
         email: 'ruben@acme.com',
         time: 'Feb 4, 05:30 PM',
         initial: 'R',
-        avatarColor: '#5398cf',
+        avatarColor: 'var(--pastelLightBlueBorderDefault)',
         body: 'Thanks! Much appreciated.'
       }
     ]
@@ -912,7 +912,7 @@ const conversationsData = [
         email: 'ruben@acme.com',
         time: 'Feb 3, 11:10 AM',
         initial: 'R',
-        avatarColor: '#5398cf',
+        avatarColor: 'var(--pastelLightBlueBorderDefault)',
         body: 'Renewed successfully. Tested and working.'
       }
     ]
@@ -957,7 +957,7 @@ const conversationsData = [
     type: 'Unassigned',
     sender: 'Printer Monitor',
     initial: 'P',
-    avatarColor: '#6366f1',
+    avatarColor: 'var(--pastelPurpleTextBody)',
     time: 'Feb 3, 02:40 PM',
     subject: 'Low toner alert',
     preview: 'Kitchen printer needs black toner.',
@@ -969,7 +969,7 @@ const conversationsData = [
         email: 'print@acme.com',
         time: 'Feb 3, 01:00 PM',
         initial: 'P',
-        avatarColor: '#6366f1',
+        avatarColor: 'var(--pastelPurpleTextBody)',
         body: 'Device status: Toner Level < 5%. Location: Main Kitchen Area.'
       },
       {

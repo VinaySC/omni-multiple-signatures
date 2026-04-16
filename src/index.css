@@ -24,7 +24,7 @@
   --body-small-line-height: 20px;
   --body-small-weight: 400;
 
-  /* Semantic Tokens (Slate) */
+  /* ── Slate — Neutral UI chrome (surface, text, border, icons) ─ */
   --slateSurfaceDark600: #475569;
   --slateSurfaceDarkest: #334155;
   --slateSurfaceDefault: #94a3b8;
@@ -44,16 +44,65 @@
   --slateIconsDisabled: #94a3b8;
   --slateIconsSubtle: #64758b;
 
-  /* Primary Tokens */
+  /* ── Primary — Brand blue, actions & highlights ───── */
   --primarySurfaceDefault: #276cf0;
   --primarySurfaceLighter: #7ea8f6;
   --primarySurfaceSubtle: #e6effd;
   --primaryBorderLighter: #a9c5f9;
   --primaryBorderSubtle: #d4e2fc;
   --primaryTextLabel: #0c3e9d;
+  --primarySurfaceHover: #0d47b5; /* Retained/Standardized */
 
-  /* Others */
+  /* ── Success — Positive / confirmatory states ─────── */
+  --successSurfaceDark: #4ad387;
+  --successBorderDark: #2dbb6d;
+  --successTextBody: #1b6f41;
+
+  /* ── Error — Destructive / failure states ─────────── */
+  --errorSurfaceDefault: #b81717;
+  --errorSurfaceDisabled: #eb5c5c;
+  --errorTextSubtle: #b81717;
+
+  /* ── Warning — Cautionary states ──────────────────── */
+  --warningSurfaceDark: #ec8a54;
+  --warningSurfaceSubtle: #fbe2d5;
+  --warningTextBody: #933e0f;
+
+  /* ── Pastel Colors (Avatars/Tags) ──────────────────── */
   --pastelRedSurfaceDefault: #d96d71;
+  --pastelRedSurfaceSubtle: #f5dbda;
+  --pastelRedBorderDefault: #d04b4f;
+  --pastelRedTextBody: #b22e33;
+  --pastelRedTextSubtle: #d04b4f;
+
+  --pastelPurpleSurfaceDefault: #b7b8dc;
+  --pastelPurpleSurfaceSubtle: #e7e7f3;
+  --pastelPurpleBorderDefault: #8789c5;
+  --pastelPurpleTextBody: #5b5daf;
+
+  --pastelOrangeSurfaceDefault: #e98959;
+  --pastelOrangeSurfaceSubtle: #fcefe8;
+  --pastelOrangeBorderDefault: #e3692c;
+  --pastelOrangeTextBody: #c2521b;
+
+  --pastelGreenSurfaceDefault: #75c2b2;
+  --pastelGreenSurfaceSubtle: #ddefeb;
+  --pastelGreenBorderDefault: #52b39e;
+  --pastelGreenTextBody: #2f6e61;
+
+  --pastelVioletSurfaceDefault: #caaed1;
+  --pastelVioletSurfaceSubtle: #ece2ee;
+  --pastelVioletBorderDefault: #ac80b7;
+  --pastelVioletTextBody: #9b66a8;
+
+  --pastelLightBlueSurfaceDefault: #77add9;
+  --pastelLightBlueSurfaceSubtle: #dbe9f5;
+  --pastelLightBlueBorderDefault: #5398cf;
+  --pastelLightBlueTextBody: #255c87;
+
+  --pastelYellowSurfaceSubtle: #faf5d6;
+  --pastelYellowBorderDefault: #e3cb2d;
+  --pastelYellowTextBody: #907f13;
 }
 
 * {

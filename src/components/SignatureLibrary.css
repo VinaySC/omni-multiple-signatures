@@ -25,14 +25,14 @@
   font-family: 'Hanken Grotesk', sans-serif;
   font-size: 16px;
   font-weight: 600;
-  color: #0f172a;
+  color: var(--slateTextTitle);
   margin: 0;
 }
 
 .section-desc {
   font-family: 'Hanken Grotesk', sans-serif;
   font-size: 14px;
-  color: #64758b;
+  color: var(--slateTextSubtle);
   margin: 0;
 }
 
@@ -40,8 +40,8 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  background-color: #e6effd;
-  color: #334155;
+  background-color: var(--primarySurfaceSubtle);
+  color: var(--slateTextBody);
   border: none;
   border-radius: 6px;
   padding: 6px 12px;
@@ -54,7 +54,7 @@
 }
 
 .btn-create-secondary:hover {
-  background-color: #dbe9fe;
+  background-color: var(--primaryBorderSubtle);
 }
 
 /* Empty State Section */
@@ -62,12 +62,12 @@
   width: 100%;
   max-width: 700px;
   height: 300px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--slateBorderLight);
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: white;
+  background-color: var(--slateSurfaceWhite);
 }
 
 .empty-state-content {
@@ -96,7 +96,7 @@
   font-family: 'Hanken Grotesk', sans-serif;
   font-size: 14px;
   font-weight: 500;
-  color: #000000;
+  color: var(--slateTextTitle);
   line-height: 20px;
 }
 
@@ -105,13 +105,13 @@
   font-family: 'Hanken Grotesk', sans-serif;
   font-size: 12px;
   font-weight: 400;
-  color: #64758b;
+  color: var(--slateTextSubtle);
   line-height: 18px;
 }
 
 .btn-create-signature {
-  background-color: #0f53d2;
-  color: white;
+  background-color: var(--primarySurfaceDefault);
+  color: var(--slateSurfaceWhite);
   border: none;
   border-radius: 6px;
   padding: 6px 14px;
@@ -127,7 +127,7 @@
 }
 
 .btn-create-signature:hover {
-  background-color: #0d47b5;
+  background-color: var(--primarySurfaceHover);
 }
 
 /* Saved Signatures Table */
@@ -138,8 +138,8 @@
 
 .sig-table {
   width: 100%;
-  background-color: white;
-  border: 1px solid #e2e8f0;
+  background-color: var(--slateSurfaceWhite);
+  border: 1px solid var(--slateBorderLight);
   border-radius: 8px;
   overflow: visible; /* Changed from hidden to allow preview tooltip to be seen */
   border-collapse: collapse;
@@ -147,8 +147,8 @@
 
 .sig-table-header {
   display: flex;
-  background-color: #f8fafc;
-  border-bottom: 1px solid #e2e8f0;
+  background-color: var(--slateSurfaceSubtle);
+  border-bottom: 1px solid var(--slateBorderLight);
   height: 44px;
   align-items: center;
 }
@@ -157,7 +157,7 @@
   font-family: 'Hanken Grotesk', sans-serif;
   font-size: 14px;
   font-weight: 500;
-  color: #334155;
+  color: var(--slateTextBody);
   padding: 0 16px;
 }
 
@@ -165,7 +165,7 @@
   display: flex;
   height: 52px;
   align-items: center;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid var(--slateBorderLight);
   transition: background-color 0.2s;
 }
 
@@ -174,7 +174,7 @@
 }
 
 .sig-table-row:hover {
-  background-color: #f8fafc;
+  background-color: var(--slateSurfaceSubtle);
 }
 
 .col-name {
@@ -184,13 +184,13 @@
   padding: 0 16px;
   font-family: 'Hanken Grotesk', sans-serif;
   font-size: 14px;
-  color: #334155;
+  color: var(--slateTextBody);
   cursor: default;
 }
 
 .default-tag {
-  background-color: #f1f5f9;
-  color: #334155;
+  background-color: var(--slateSurfaceSubtle200);
+  color: var(--slateTextBody);
   font-size: 10px;
   font-weight: 500;
   padding: 2px 6px;
@@ -202,7 +202,7 @@
   padding: 0 16px;
   font-family: 'Hanken Grotesk', sans-serif;
   font-size: 14px;
-  color: #334155;
+  color: var(--slateTextBody);
 }
 
 .col-actions {
@@ -237,16 +237,16 @@
 }
 
 .btn-action:hover {
-  background-color: #e2e8f0;
-  color: #0f172a;
+  background-color: var(--slateSurfaceSubtle200);
+  color: var(--slateTextTitle);
 }
 
 /* Default Signature Section */
 .default-signature-section {
   width: 100%;
   max-width: 700px;
-  background-color: #f8fafc;
-  border: 1px solid #e2e8f0;
+  background-color: var(--slateSurfaceSubtle);
+  border: 1px solid var(--slateBorderLight);
   border-radius: 8px;
   padding: 16px;
   display: flex;
@@ -267,7 +267,7 @@
   font-family: 'Hanken Grotesk', sans-serif;
   font-size: 14px;
   font-weight: 500;
-  color: #334155;
+  color: var(--slateTextBody);
   line-height: 20px;
 }
 
@@ -276,27 +276,27 @@
   font-family: 'Hanken Grotesk', sans-serif;
   font-size: 14px;
   font-weight: 400;
-  color: #64758b;
+  color: var(--slateTextSubtle);
   line-height: 20px;
 }
 
 .default-dropdown-wrapper {
   width: 236px;
   height: 40px;
-  border: 1.5px solid #e2e8f0;
+  border: 1.5px solid var(--slateBorderLight);
   border-radius: 6px;
   display: flex; /* Kept for disabled state */
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
-  background-color: white;
+  background-color: var(--slateSurfaceWhite);
   transition: all 0.2s;
   position: relative; /* For absolute icon positioning */
 }
 
 .default-dropdown-wrapper.disabled {
-  background-color: #e2e8f0;
-  border: 1px solid #e2e8f0;
+  background-color: var(--slateSurfaceSubtle200);
+  border: 1px solid var(--slateBorderLight);
   cursor: not-allowed;
   padding: 0 12px;
 }
@@ -304,11 +304,11 @@
 .dropdown-placeholder {
   font-family: 'Hanken Grotesk', sans-serif;
   font-size: 14px;
-  color: #94a3b8;
+  color: var(--slateSurfaceDefault);
 }
 
 .dropdown-icon {
-  color: #94a3b8;
+  color: var(--slateSurfaceDefault);
   position: absolute;
   right: 12px;
   pointer-events: none; /* Allow clicks to pass through to the select */
@@ -328,7 +328,7 @@
   background: transparent;
   font-family: 'Hanken Grotesk', sans-serif;
   font-size: 14px;
-  color: #334155;
+  color: var(--slateTextBody);
   outline: none;
   cursor: pointer;
   appearance: none;
@@ -361,8 +361,8 @@
   transform: translateY(-50%);
   z-index: 1000;
   width: 320px;
-  background: white;
-  border: 1px solid #e2e8f0;
+  background: var(--slateSurfaceWhite);
+  border: 1px solid var(--slateBorderLight);
   border-radius: 8px;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   animation: fadeInTooltip 0.2s ease-out;
@@ -384,7 +384,7 @@
   padding: 12px;
   font-family: 'Hanken Grotesk', sans-serif;
   font-size: 14px;
-  color: #334155;
+  color: var(--slateTextBody);
   line-height: 1.5;
   max-height: 200px;
   overflow-y: auto;
@@ -394,4 +394,34 @@
 .sig-preview-body img {
   max-width: 100%;
   height: auto;
+}
+
+/* Shared Tooltip Styles */
+[data-tooltip] {
+  position: relative;
+}
+
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  padding: 6px 10px;
+  background-color: var(--slateSurfaceDarkest);
+  color: var(--slateSurfaceWhite);
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+}
+
+[data-tooltip]:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }

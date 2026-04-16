@@ -119,7 +119,7 @@ const CreateSignatureModal = ({ onClose, onSave, initialData, signatures = [] })
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-container" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
-          <h2 className="modal-title">{initialData ? 'Edit signature' : 'New signature'}</h2>
+          <h2 className="modal-title">{initialData ? 'Edit signature' : 'Create signature'}</h2>
           <button className="btn-close" onClick={onClose}>
             <X size={16} />
           </button>
@@ -128,12 +128,12 @@ const CreateSignatureModal = ({ onClose, onSave, initialData, signatures = [] })
         <div className="modal-content">
           {/* Signature Name */}
           <div className="form-group">
-            <label className="form-label">Signature name</label>
+            <label className="form-label">Name</label>
             <div className="input-wrapper">
               <input
                 type="text"
                 className={`form-input ${nameError ? 'has-error' : ''}`}
-                placeholder="Signature name"
+                placeholder="e.g., Support"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 autoFocus

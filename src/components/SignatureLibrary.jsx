@@ -116,7 +116,7 @@ const SignatureLibrary = ({
       <div className="section-header-row">
         <div className="section-header">
           <h3 className="section-title">Signature</h3>
-          <p className="section-desc">Customize and manage your email signature with ease.</p>
+          <p className="section-desc">Create and manage email signatures for different inboxes.</p>
         </div>
         {signatures.length > 0 && (
           <button className="btn-create-secondary" onClick={handleOpenModal}>
@@ -137,7 +137,7 @@ const SignatureLibrary = ({
               <div className="empty-state-text">
                 <h4 className="empty-state-title">No signatures yet</h4>
                 <p className="empty-state-subtitle">
-                  Create and switch between signatures for different inboxes
+                  Create and assign signatures to different Shared Inboxes.
                 </p>
               </div>
               <button className="btn-create-signature" onClick={handleOpenModal}>
@@ -206,10 +206,13 @@ const SignatureLibrary = ({
               Primary signature is used when no default signature is assigned for an inbox
             </p>
           </div>
-          <div className={`default-dropdown-wrapper ${signatures.length === 0 ? 'disabled' : ''}`}>
+          <div 
+            className={`default-dropdown-wrapper ${signatures.length === 0 ? 'disabled' : ''}`}
+            {...(signatures.length === 0 ? { 'data-tooltip': 'No signature yet' } : {})}
+          >
             <div className="dropdown-content">
               {signatures.length === 0 ? (
-                <span className="dropdown-placeholder">No signatures yet</span>
+                <span className="dropdown-placeholder">Select signature</span>
               ) : (
                 <select 
                   className="sig-select"

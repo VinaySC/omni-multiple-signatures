@@ -3,7 +3,7 @@
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  background-color: white;
+  background-color: var(--slateSurfaceWhite);
 }
 
 .settings-layout {
@@ -145,7 +145,7 @@
 
 .settings-divider {
   height: 1px;
-  background-color: #E2E8F0;
+  background-color: var(--slateBorderLight);
   width: 100%;
 }
 
@@ -155,14 +155,14 @@
   display: flex;
   justify-content: flex-end;
   border-top: 1px solid var(--slateBorderLight);
-  background: white;
+  background: var(--slateSurfaceWhite);
   flex-shrink: 0;
 }
 
 .btn-save {
   padding: 8px 16px;
   background-color: var(--primarySurfaceDefault);
-  color: white;
+  color: var(--slateSurfaceWhite);
   border: none;
   border-radius: 6px;
   font-weight: 500;
@@ -172,12 +172,12 @@
 }
 
 .btn-save:hover {
-  background-color: #0F53D2;
+  background-color: var(--primarySurfaceHover);
 }
 
 .btn-save:disabled {
-  background-color: #F1F5F9;
-  color: #94a3b8;
+  background-color: var(--slateSurfaceSubtle100-hover);
+  color: var(--slateSurfaceDefault);
   cursor: not-allowed;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--slateBorderLight);
 }
